@@ -1,13 +1,13 @@
-<p align="center">
+<a name="readme-top"></a>
+
 <p align="center">
   <img src="DEALIQ%20banner.png" alt="DealIQ — AI-Powered At-Risk Deal Radar" width="100%">
 </p>
 
-  
-  <h1 align="center">DealIQ — AI-Powered At-Risk Deal Radar 🎯</h1>
-  <p align="center">
-    <i>An AI-powered sales intelligence platform for identifying at-risk deals, explaining risk factors, and recommending data-driven actions</i>
-  </p>
+<h1 align="center">DealIQ — AI-Powered At-Risk Deal Radar 🎯</h1>
+
+<p align="center">
+  <i>An AI-powered sales intelligence platform for identifying at-risk deals, explaining risk factors, and recommending data-driven actions</i>
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 **DealIQ** is an AI-powered sales intelligence platform that identifies at-risk deals, explains the underlying risk factors, retrieves similar historical deals, determines the primary root cause, and recommends the next best action.
 
-DealIQ combines machine learning, deterministic business rules, historical analog retrieval, explainable risk factors, and real-time pipeline analytics into a single decision-support platform for sales teams.
+DealIQ combines machine learning, deterministic business rules, historical analog retrieval, explainable risk factors, and live pipeline analytics into a single decision-support platform for sales teams.
 
 ## Table of Contents
 - [🚀 What DealIQ Does](#-what-dealiq-does)
@@ -43,13 +43,10 @@ DealIQ combines machine learning, deterministic business rules, historical analo
 - [🔍 Deal Investigation](#-deal-investigation)
 - [🏗️ System Architecture](#️-system-architecture)
 - [🧪 Automated Testing](#-automated-testing)
-- [🔐 Data Integrity & Leakage Prevention](#-data-integrity--leakage-prevention)
-- [🛡️ Explainability](#️-explainability)
+- [️ Explainability](#️-explainability)
 - [📋 Example Output](#-example-output)
 - [⚠️ Current ML Limitation](#-current-ml-limitation)
-- [🔄 Before → After Improvements](#-before--after-improvements)
 - [✅ Validation Status](#-validation-status)
-- [🎥 Recommended 2-Minute Demo Flow](#-recommended-2-minute-demo-flow)
 - [🏆 Key Differentiator](#-key-differentiator)
 - [🔌 Salesforce Integration](#-salesforce-integration)
 - [🤝 Contributing](#-contributing)
@@ -105,6 +102,8 @@ The model produces a risk probability that is used by the DealIQ risk engine.
 DealIQ maintains a separate deterministic Health Score from 0–100.
 
 The Health Score is intentionally separate from the ML Risk Score.
+
+Health Score = 50 + contributions, then clamp to 0–100
 
 It evaluates six observable operational factors:
 
@@ -305,6 +304,8 @@ This imbalance caused the original uncalibrated Random Forest probabilities to b
 
 DealIQ therefore uses probability calibration to improve the quality of the predicted probabilities.
 
+**Model Selection:** Calibrated Random Forest was selected as the production model based on the best overall trade-off between discrimination and probability quality. While the uncalibrated Random Forest achieved slightly higher ROC-AUC (0.7284 vs. 0.7232) and PR-AUC (0.9403 vs. 0.9401), its probability quality was substantially worse, with a Brier Score of 0.1358 and ECE of 0.1904. Sigmoid calibration reduced these to 0.1035 and 0.0655 respectively, making the calibrated model more suitable for probability-based risk scoring.
+
 ### 🎯 Decision Threshold
 
 The production decision threshold was selected using 5-Fold Stratified Cross-Validation on the training set.
@@ -330,7 +331,26 @@ The selection prioritizes Matthews Correlation Coefficient (MCC) while maintaini
 
 - At 0.50, the model identifies almost every at-risk deal but incorrectly classifies almost every WON deal as risky.
 - At 0.85, specificity improves, but at-risk recall falls significantly.
-- **0.80 provides the best MCC among the evaluated thresholds while retaining approximately 90% sensitivity.**
+- **Thus, 0.80 was selected as the optimal threshold among the evaluated candidate thresholds, maximizing MCC while retaining approximately 90% sensitivity.**
+
+### Decision Threshold vs. Dashboard Risk Bands
+
+DealIQ uses two related but distinct concepts:
+
+**ML Decision Threshold**
+- τ = 0.80
+- Used for binary model evaluation: WON vs. AT-RISK
+- Selected through 5-Fold Stratified Cross-Validation using MCC
+
+**Dashboard Risk Bands**
+- High Risk: ≥ 60/100
+- Medium Risk: 35–59.99/100
+- Low Risk: < 35/100
+- Used for pipeline prioritization and visualization
+
+The dashboard risk bands should therefore not be interpreted as the model's optimized binary classification threshold.
+
+**Important:** The Risk Score is the calibrated model probability expressed on a 0–100 operational scale. Dashboard risk bands (High ≥60, Medium 35–59.99, Low <35) are prioritization categories and are intentionally separate from the ML binary decision threshold (τ=0.80).
 
 ### 📊 Holdout Evaluation
 
@@ -365,11 +385,13 @@ DealIQ uses **Sigmoid probability calibration** on the Random Forest classifier.
 
 Calibration quality is monitored using:
 
-- **Brier Score**: 0.1035 (below the naive prevalence baseline of 0.1111)
+- **Brier Score**: 0.1035, improving over the holdout prevalence baseline of approximately 0.1111, corresponding to a Brier Skill Score of +6.79%
 - **Brier Skill Score**: +0.0679 (indicating improvement over the prevalence-based baseline)
 - **Expected Calibration Error**: ECE = 0.0655 (~6.55%)
 
 The calibration layer is intended to make the model's probability outputs more useful as risk estimates rather than relying on raw tree-leaf probabilities.
+
+**Note:** The historical dataset contains 481/550 unsuccessful deals (87.5%), which creates substantial class imbalance in the demonstration dataset.
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
@@ -424,6 +446,8 @@ The system compares a live deal against historical deals to provide contextual e
 - 112 days → LOST
 
 This helps answer: *"Have similar deals historically succeeded or failed?"*
+
+**Note:** Historical analogs provide contextual evidence and are not treated as causal predictions.
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
@@ -512,7 +536,7 @@ The recommendation engine maps primary risk signals to deterministic action plan
 - Sentiment: Declining 🔴
 - Stakeholders: 7 🟢
 - Competitor Mentions: 5 🔴
-- Scope Changes: 1 🟢/limited
+- Scope Changes: 1 — Limited instability
 
 ### Ranked Risk Signals
 1. Extended Time in Stage — 38%
@@ -535,7 +559,7 @@ This connects: **Observed data → Risk → Root Cause → Action → Historical
 
 ## 📊 DealIQ Dashboard
 
-The main dashboard provides a real-time pipeline overview.
+The main dashboard provides a live pipeline overview.
 
 ### Current Dataset Snapshot
 
@@ -547,7 +571,7 @@ The dashboard provides:
 - Active Live Deals
 - Total Pipeline Value
 - Pipeline At Risk
-- Weighted Pipeline Value
+- Weighted Pipeline Value (calculated as Σ(deal value × estimated probability of success), where probability of success = 1 − calibrated AT-RISK probability)
 - Average Health Score
 - Win Rate
 - Ranked At-Risk Deals
@@ -566,6 +590,8 @@ Live deals are classified using risk-score bands:
 The dashboard's **Pipeline At Risk (Med + High)** represents the aggregate value of live deals classified as Medium or High Risk.
 
 This uses the same risk classification source of truth as the deal-level filtering.
+
+**Note:** The current dataset is heavily imbalanced toward unsuccessful historical outcomes (87.5%) and produces an unusually high proportion of high-risk live deals in the demonstration pipeline. In the current synthetic/demo dataset, all 100 active deals fall above the dashboard's Medium Risk cutoff of 35/100, resulting in 100% of pipeline value being categorized as Medium or High Risk. These figures should not be interpreted as general population estimates.
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
@@ -642,20 +668,16 @@ Each deal provides detailed evidence including:
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
-##  Automated Testing
+## 🧪 Automated Testing
 
-DealIQ currently contains **15 / 15 automated test suites passing**.
+DealIQ currently contains **15 / 15 automated tests passing**.
 
 Run:
 ```bash
 python -m unittest test_app.py
 ```
 
-Expected result:
-```
-Ran 15 tests
-OK
-```
+**Current test suite:** 15/15 passing
 
 The test suite covers critical system behavior including:
 - Health Score validation
@@ -675,32 +697,7 @@ The test suite covers critical system behavior including:
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
-## 🔐 Data Integrity & Leakage Prevention
-
-DealIQ explicitly separates training and evaluation data.
-
-The ML workflow uses:
-```
-550 historical deals
-       ↓
-80/20 Stratified Split
-       ↓
-440 Training / 110 Holdout
-       ↓
-5-Fold CV on Training Set
-       ↓
-Threshold Selection
-       ↓
-Final Evaluation on Unseen Holdout
-```
-
-The holdout set is not used for selecting the production decision threshold.
-
-Historical analog retrieval also performs self-exclusion, preventing a live deal from being returned as its own historical analog.
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## 🛡️ Explainability
+## ️ Explainability
 
 DealIQ is designed around evidence-backed recommendations.
 
@@ -738,33 +735,19 @@ This makes the system useful for human decision-making rather than treating the 
 
 ## 📋 Example Output
 
-**Hyperion Systems**  
-DEAL-0626 • Qualification
+<p align="center">
+  <img src="screenshots/deal_investigation_example.png" alt="Deal Investigation Screenshot" width="100%">
+</p>
 
-**Risk Score:** 92/100  
-**Health Score:** 28/100
-
-**Primary Risk Signal:**
-Extended Time in Stage — 38%
-
-**Current:** 148 days  
-**Benchmark:** ≤ 21 days
-
-**Root Cause:**
-Extended Time in Stage / Deal Stagnation
-
-**Recommended Next Move:**
-Initiate an executive sponsor check-in to reset timeline expectations and re-validate business priorities.
-
-**WHY NOT WAIT:**
-4/5 nearest historical analogs stalled or were lost.  
-5/5 spent at least 112 days in Qualification.
+*Screenshot showing DealIQ's risk analysis with Risk Score, Health Score, Root Cause, Recommended Action, and Historical Evidence for Hyperion Systems.*
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
 ## ⚠️ Current ML Limitation
 
-The model's ROC-AUC of 0.7232 indicates moderate discrimination rather than perfect separation between successful and at-risk deals.
+The ROC-AUC of 0.7232 indicates moderate discrimination, meaning the model can distinguish many at-risk deals from successful deals but does not provide perfect separation. The moderate ROC-AUC reflects overlap in the feature distributions between WON and unsuccessful deals. The relatively small dataset and strong class imbalance also limit the reliability and generalizability of performance estimates.
+
+**Note:** Because the positive class prevalence is approximately 87.5%, PR-AUC should be interpreted relative to this high baseline prevalence rather than in isolation.
 
 This is expected given the overlap between WON and unsuccessful outcomes in the underlying historical dataset.
 
@@ -778,34 +761,6 @@ However, the model demonstrates strong precision/recall characteristics on the h
 - Deterministic recommendation logic
 
 DealIQ should therefore be viewed as a decision-support system, not an autonomous replacement for sales judgment.
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## 🔄 Before → After Improvements
-
-DealIQ underwent several stabilization and validation improvements.
-
-### Risk Score
-- **Before:** Uncalibrated Random Forest probabilities were heavily concentrated toward high-risk values.
-- **After:** Calibrated Random Forest with validated probability outputs.
-
-### Decision Threshold
-- **Before:** 0.70
-- **After:** 0.80 (selected through 5-Fold Stratified CV)
-
-### Root Cause
-- **Before:** Risk ranking and root cause were calculated through separate heuristics, which could produce contradictions.
-- **After:** Highest-ranked primary risk → Primary root cause → Recommended action
-
-### WHY NOT WAIT
-- **Before:** Analog duration counts could incorrectly count only a subset of analogs.
-- **After:** All returned analogs are evaluated using `days_in_stage >= threshold_days` with a dynamic denominator.
-
-### Dashboard
-Improved score semantics:
-- **High Risk (96/100)** instead of presenting the operational score ambiguously as **High Risk (96%)**
-
-Also clarified: **Pipeline At Risk (Med + High)**
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
@@ -831,58 +786,7 @@ Also clarified: **Pipeline At Risk (Med + High)**
 | Risk Classification | 🟢 Validated |
 | Automated Tests | 🟢 15/15 Passed |
 
-### Overall Status
-🟢 **READY FOR DEMO**
 
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## 🎥 Recommended 2-Minute Demo Flow
-
-For the demo, don't explain the mathematics deeply. Show the product.
-
-### 0:00–0:20 — Dashboard
-Show:
-- 100 live deals
-- Pipeline value
-- Pipeline at risk
-- Average health
-- Ranked at-risk deals
-
-**Say:** "DealIQ continuously ranks the live pipeline based on ML risk scoring and operational health."
-
-### 0:20–0:50 — Open Radiant Systems
-Show:
-- 96/100 risk
-- Health Score
-- Risk factors
-- Primary diagnosis
-
-**Explain:** "Instead of just flagging the deal, DealIQ tells us exactly why it is at risk."
-
-### 0:50–1:20 — Show Recommendation
-Show:
-- Root Cause
-- ↓
-- Recommended Next Move
-- ↓
-- WHY THIS MOVE
-
-**Explain:** "The root cause is deterministically aligned with the highest-ranked risk signal, so the recommendation doesn't contradict the diagnosis."
-
-### 1:20–1:45 — Show Historical Analogs
-Show:
-- 5 nearest historical deals
-- 5/5 spent at least X days in stage
-
-**Say:** "DealIQ also compares the current opportunity against similar historical deals to provide evidence for why action should happen now."
-
-### 1:45–2:00 — Testing / Closing
-Show:
-- 15 / 15 tests passed
-
-**Then conclude:** "The system combines machine-learning risk detection with explainable operational factors, historical evidence, and deterministic recommendations."
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
 ## 🏆 Key Differentiator
 
@@ -918,14 +822,16 @@ WHY NOT WAIT
 
 ## 🔌 Salesforce Integration
 
-DealIQ can be integrated with Salesforce to provide real-time deal intelligence directly within your CRM environment.
+**Status:** Integration framework implemented; live synchronization is a deployment capability not included in current demo.
+
+DealIQ can be integrated with Salesforce to provide live deal intelligence directly within your CRM environment.
 
 ### Integration Benefits
 
-- **Real-time Risk Alerts**: Get notified when Salesforce opportunities become at-risk
+- **Live Risk Alerts**: Get notified when Salesforce opportunities become at-risk
 - **AI-Powered Recommendations**: Receive actionable recovery suggestions directly in Salesforce
 - **Historical Context**: View similar historical deals from Salesforce closed opportunities
-- **Seamless Workflow**: No need to switch between systems - insights embedded in your existing workflow
+- **CRM Workflow Integration**: Surface DealIQ insights within Salesforce once live synchronization is enabled
 
 ### Integration Options
 
@@ -944,7 +850,7 @@ Use Salesforce REST API to fetch opportunity data:
 # Example integration configuration
 SALESFORCE_CONFIG = {
     "instance_url": "https://your-instance.salesforce.com",
-    "api_version": "v58.0",
+    "api_version": "<supported Salesforce API version>",
     "client_id": "your_consumer_key",
     "client_secret": "your_consumer_secret"
 }
@@ -959,7 +865,7 @@ SALESFORCE_CONFIG = {
 | Deal Name | Opportunity Name |
 | Stage | StageName |
 | Deal Size | Amount |
-| Days in Stage | Calculated from CreatedDate |
+| Days in Stage | Derived from stage-history timestamps / CRM stage transition data |
 | Stakeholder Count | Custom field or derived from contacts |
 | Outcome | StageName (Closed Won/Lost) |
 
@@ -978,8 +884,8 @@ SALESFORCE_CONFIG = {
    - Format to match DealIQ historical_deals.json schema
    - Load into DealIQ for ML training
 
-3. **Enable Real-time Sync**
-   - Configure Salesforce webhook or scheduled polling
+3. **Planned: Enable Live Sync** (Deployment Integration)
+   - For production deployment, Salesforce opportunities can be synchronized through scheduled polling or event-driven integration
    - Map opportunity fields to DealIQ schema
    - Set up risk score field in Salesforce
 
@@ -1012,7 +918,7 @@ Add these custom fields to your Opportunity object:
 
 ## 🤝 Contributing
 
-This project was developed for the Build Sprint Hackathon. The system is production-ready with comprehensive validation and testing.
+This project was developed for the Build Sprint Hackathon. The system is demo-ready and extensively validated for the hackathon environment, with 15 automated regression test suites covering core ML, recommendation, analog, and dashboard behavior.
 
 ## 👥 Team
 
