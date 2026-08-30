@@ -517,17 +517,6 @@ The recommendation engine maps primary risk signals to deterministic action plan
 
 ## 🧩 Examples & Dashboard
 
-### Example: Titan Technologies
-
-<p align="center">
-  <img src="DeallQ's complete analysis1.png" alt="Titan Technologies Deal Analysis Screenshot1" width="100%">
-  <img src="DeallQ's complete analysis2.png" alt="Titan Technologies Deal Analysis Screenshot2" width="100%">
-  <img src="DeallQ's complete analysis3.png" alt="Titan Technologies Deal Analysis Screenshot3" width="100%">
-  <img src="DeallQ's complete analysis4.png" alt="Titan Technologies Deal Analysis Screenshot4" width="100%">
-</p>
-
-*Screenshot showing DealIQ's complete analysis for Titan Technologies: Risk Score (96/100), Health Score (30/100), Health Factors, Ranked Risk Signals, Root Cause, Recommended Action, and Historical Evidence.*
-
 ### DealIQ Dashboard
 
 <p align="center">
@@ -537,6 +526,28 @@ The recommendation engine maps primary risk signals to deterministic action plan
 *Screenshot showing DealIQ's main dashboard with pipeline overview, risk classification, and key metrics.*
 
 The main dashboard provides a live pipeline overview.
+
+### Example: Titan Technologies
+
+<p align="center">
+  <img src="dealiq_analysis_1.png" alt="Titan Technologies Deal Analysis 1" width="100%">
+</p>
+
+<p align="center">
+  <img src="dealiq_analysis_2.png" alt="Titan Technologies Deal Analysis 2" width="100%">
+</p>
+
+<p align="center">
+  <img src="dealiq_analysis_3.png" alt="Titan Technologies Deal Analysis 3" width="100%">
+</p>
+
+<p align="center">
+  <img src="dealiq_analysis_4.png" alt="Titan Technologies Deal Analysis 4" width="100%">
+</p>
+
+*Screenshot showing DealIQ's complete analysis for Titan Technologies: Risk Score (96/100), Health Score (30/100), Health Factors, Ranked Risk Signals, Root Cause, Recommended Action, and Historical Evidence.*
+
+
 
 ### Current Dataset Snapshot
 
