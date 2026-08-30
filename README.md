@@ -234,7 +234,7 @@ TEAM-SHAKTHI-BUILD-SPRINT-HACKATHON/
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Thishithasai406/TEAM-SHAKTHI-BUILD-SPRINT-HACKATHON-.git
 cd TEAM-SHAKTHI-BUILD-SPRINT-HACKATHON
 ```
 
