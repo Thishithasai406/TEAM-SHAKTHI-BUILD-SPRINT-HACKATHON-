@@ -517,18 +517,21 @@ The recommendation engine maps primary risk signals to deterministic action plan
 
 ## 🧩 Examples & Dashboard
 
-### Example: Hyperion Systems
+### Example: Titan Technologies
 
 <p align="center">
-  <img src="screenshots/hyperion_systems_example.png" alt="Hyperion Systems Deal Analysis Screenshot" width="100%">
+  <img src="DeallQ's complete analysis1.png" alt="Titan Technologies Deal Analysis Screenshot1" width="100%">
+  <img src="DeallQ's complete analysis2.png" alt="Titan Technologies Deal Analysis Screenshot2" width="100%">
+  <img src="DeallQ's complete analysis3.png" alt="Titan Technologies Deal Analysis Screenshot3" width="100%">
+  <img src="DeallQ's complete analysis4.png" alt="Titan Technologies Deal Analysis Screenshot4" width="100%">
 </p>
 
-*Screenshot showing DealIQ's complete analysis for Hyperion Systems: Risk Score (92/100), Health Score (28/100), Health Factors, Ranked Risk Signals, Root Cause, Recommended Action, and Historical Evidence.*
+*Screenshot showing DealIQ's complete analysis for Titan Technologies: Risk Score (96/100), Health Score (30/100), Health Factors, Ranked Risk Signals, Root Cause, Recommended Action, and Historical Evidence.*
 
 ### DealIQ Dashboard
 
 <p align="center">
-  <img src="screenshots/dashboard_overview.png" alt="DealIQ Dashboard Screenshot" width="100%">
+  <img src="dashboard_overview.png" alt="DealIQ Dashboard Screenshot" width="100%">
 </p>
 
 *Screenshot showing DealIQ's main dashboard with pipeline overview, risk classification, and key metrics.*
