@@ -21,6 +21,12 @@
   <img src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
+<p align="center">
+  <a href="https://dealiq-at-risk-deal-rader-zcwe.onrender.com/">
+    <img src="https://img.shields.io/badge/🚀-Live_Demo-4CAF50?style=for-the-badge" alt="Live Demo">
+  </a>
+</p>
+
 **DealIQ** is an AI-powered sales intelligence platform that identifies at-risk deals, explains the underlying risk factors, retrieves similar historical deals, determines the primary root cause, and recommends the next best action.
 
 DealIQ combines machine learning, deterministic business rules, historical analog retrieval, explainable risk factors, and live pipeline analytics into a single decision-support platform for sales teams.
@@ -31,20 +37,15 @@ DealIQ combines machine learning, deterministic business rules, historical analo
 - [🏗️ Project Structure](#️-project-structure)
 - [🧰 Technology Stack](#-technology-stack)
 - [📡 API Endpoints](#-api-endpoints)
-- [📋 Installation](#-installation)
-- [▶️ Running DealIQ](#️-running-dealiq)
+- [📋 Installation & Running](#-installation--running)
 - [🤖 ML Risk Scoring](#-ml-risk-scoring)
 - [🧠 Explainable Risk Signals](#-explainable-risk-signals)
 - [🔎 Historical Deal Analogs](#-historical-deal-analogs)
 - [⏳ WHY NOT WAIT](#-why-not-wait)
 - [🎯 Deterministic Root Cause Engine](#-deterministic-root-cause-engine)
-- [🧩 Example: Hyperion Systems](#-example-hyperion-systems)
-- [📊 DealIQ Dashboard](#-dealiq-dashboard)
-- [🔍 Deal Investigation](#-deal-investigation)
+- [🧩 Examples & Dashboard](#-examples--dashboard)
 - [🏗️ System Architecture](#️-system-architecture)
 - [🧪 Automated Testing](#-automated-testing)
-- [️ Explainability](#️-explainability)
-- [📋 Example Output](#-example-output)
 - [⚠️ Current ML Limitation](#-current-ml-limitation)
 - [✅ Validation Status](#-validation-status)
 - [🏆 Key Differentiator](#-key-differentiator)
@@ -223,7 +224,7 @@ TEAM-SHAKTHI-BUILD-SPRINT-HACKATHON/
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
-## 📋 Installation
+## 📋 Installation & Running
 
 ### Prerequisites
 - Python 3.9 or higher
@@ -254,21 +255,14 @@ Ensure the following files exist in the `data/` directory:
 - `live_deals.json` - Current pipeline deals
 - `historical_deals.json` - Historical deal outcomes
 
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
+### Running DealIQ
 
-## ▶️ Running DealIQ
-
-### 1. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Start the Backend
+1. **Start the Backend**
 ```bash
 uvicorn main:app --reload
 ```
 
-### 3. Open the Application
+2. **Open the Application**
 
 Open the frontend/dashboard URL configured by the project (typically `http://127.0.0.1:8000`)
 
@@ -521,43 +515,23 @@ The recommendation engine maps primary risk signals to deterministic action plan
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
-## 🧩 Example: Hyperion Systems
+## 🧩 Examples & Dashboard
 
-**Deal:** DEAL-0626  
-**Stage:** Qualification  
-**Deal Value:** $895,000
+### Example: Hyperion Systems
 
-**Risk Score:** 92/100  
-**Health Score:** 28/100
+<p align="center">
+  <img src="screenshots/hyperion_systems_example.png" alt="Hyperion Systems Deal Analysis Screenshot" width="100%">
+</p>
 
-### Health Factors
-- Stage Velocity: 148 days vs ≤21 days 🔴
-- Response Latency: 56.8h vs ≤24h 🔴
-- Sentiment: Declining 🔴
-- Stakeholders: 7 🟢
-- Competitor Mentions: 5 🔴
-- Scope Changes: 1 — Limited instability
+*Screenshot showing DealIQ's complete analysis for Hyperion Systems: Risk Score (92/100), Health Score (28/100), Health Factors, Ranked Risk Signals, Root Cause, Recommended Action, and Historical Evidence.*
 
-### Ranked Risk Signals
-1. Extended Time in Stage — 38%
-2. Competitor Presence — 33%
-3. Elevated Response Latency — 29%
+### DealIQ Dashboard
 
-### Root Cause
-**Extended Time in Stage / Deal Stagnation**
+<p align="center">
+  <img src="screenshots/dashboard_overview.png" alt="DealIQ Dashboard Screenshot" width="100%">
+</p>
 
-### Recommended Action
-Initiate an executive sponsor check-in to reset timeline expectations and re-validate business priorities.
-
-### Historical Evidence
-- 4/5 nearest historical analogs stalled or were lost.
-- 5/5 spent at least 112 days in Qualification.
-
-This connects: **Observed data → Risk → Root Cause → Action → Historical evidence**
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## 📊 DealIQ Dashboard
+*Screenshot showing DealIQ's main dashboard with pipeline overview, risk classification, and key metrics.*
 
 The main dashboard provides a live pipeline overview.
 
@@ -592,29 +566,6 @@ The dashboard's **Pipeline At Risk (Med + High)** represents the aggregate value
 This uses the same risk classification source of truth as the deal-level filtering.
 
 **Note:** The current dataset is heavily imbalanced toward unsuccessful historical outcomes (87.5%) and produces an unusually high proportion of high-risk live deals in the demonstration pipeline. In the current synthetic/demo dataset, all 100 active deals fall above the dashboard's Medium Risk cutoff of 35/100, resulting in 100% of pipeline value being categorized as Medium or High Risk. These figures should not be interpreted as general population estimates.
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## 🔍 Deal Investigation
-
-Users can search and filter deals by:
-- Company
-- Deal ID
-- Stage
-- Risk Level
-- Minimum Deal Size
-
-Each deal provides detailed evidence including:
-- Risk Score
-- Health Score
-- Health Factor Contributions
-- Ranked Risk Signals
-- Feature Values
-- Historical Analogs
-- Root Cause
-- Recommended Action
-- WHY THIS MOVE
-- WHY NOT WAIT
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
@@ -694,52 +645,6 @@ The test suite covers critical system behavior including:
 - Analog duration counting
 - Dashboard-related behavior
 - Regression scenarios
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## ️ Explainability
-
-DealIQ is designed around evidence-backed recommendations.
-
-Instead of simply displaying:
-```
-Risk = 92
-```
-
-it provides:
-```
-Risk = 92/100
-
-Primary Risk:
-Extended Time in Stage
-
-Current:
-148 days
-
-Benchmark:
-≤ 21 days
-
-Variance:
-+127 days
-
-Historical Evidence:
-4/5 analogs stalled or lost
-
-Recommendation:
-Executive sponsor check-in
-```
-
-This makes the system useful for human decision-making rather than treating the ML prediction as an unexplained answer.
-
-<p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
-
-## 📋 Example Output
-
-<p align="center">
-  <img src="screenshots/deal_investigation_example.png" alt="Deal Investigation Screenshot" width="100%">
-</p>
-
-*Screenshot showing DealIQ's risk analysis with Risk Score, Health Score, Root Cause, Recommended Action, and Historical Evidence for Hyperion Systems.*
 
 <p align="right">(<a href="#readme-top">⬆ Back to top</a>)</p>
 
