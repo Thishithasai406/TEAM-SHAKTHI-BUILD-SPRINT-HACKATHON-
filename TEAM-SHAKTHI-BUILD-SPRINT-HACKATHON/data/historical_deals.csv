@@ -1,0 +1,551 @@
+deal_id,company_name,deal_name,stage,deal_size,days_in_stage,response_latency_hrs,sentiment_trend,stakeholder_count,competitor_mentions,scope_change_flags,outcome
+DEAL-0001,DataCore Inc,DataCore Inc - Digital Transformation Deal,Closed,427000.0,38,53.2,declining,4,5,4,stalled
+DEAL-0002,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,159000.0,132,43.5,declining,4,1,4,lost
+DEAL-0003,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,1218000.0,43,50.4,stable,1,2,1,stalled
+DEAL-0004,Optima Solutions,Optima Solutions - Digital Transformation Deal,Closed,582000.0,91,43.7,improving,6,5,3,lost
+DEAL-0005,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,454000.0,161,63.8,stable,11,4,1,lost
+DEAL-0006,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,1164000.0,62,62.5,stable,2,2,3,lost
+DEAL-0007,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,546000.0,71,50.7,declining,11,5,0,lost
+DEAL-0008,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,382000.0,100,19.8,declining,8,5,4,stalled
+DEAL-0009,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,1168000.0,11,58.1,stable,4,2,0,stalled
+DEAL-0010,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,759000.0,120,10.7,improving,11,1,4,stalled
+DEAL-0011,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,611000.0,38,36.9,improving,4,6,0,lost
+DEAL-0012,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,1192000.0,155,5.0,stable,7,4,3,lost
+DEAL-0013,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,190000.0,71,55.5,stable,9,0,2,stalled
+DEAL-0014,Vanguard Cloud,Vanguard Cloud - Digital Transformation Deal,Closed,1089000.0,70,70.0,improving,12,4,0,lost
+DEAL-0015,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,771000.0,42,27.2,improving,4,4,4,lost
+DEAL-0016,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,186000.0,81,17.6,improving,6,4,0,won
+DEAL-0017,Velocity Networks,Velocity Networks - Enterprise Platform Renewal & Expansion,Closed,1467000.0,35,9.7,stable,9,4,1,stalled
+DEAL-0018,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,1395000.0,179,14.9,stable,12,3,2,lost
+DEAL-0019,ZeroDay Defense,ZeroDay Defense - Digital Transformation Deal,Closed,387000.0,89,2.0,declining,2,1,4,stalled
+DEAL-0020,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,107000.0,11,62.0,improving,2,4,1,stalled
+DEAL-0021,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,216000.0,150,34.3,stable,10,6,3,stalled
+DEAL-0022,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,544000.0,122,62.3,improving,7,5,0,stalled
+DEAL-0023,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,182000.0,51,38.8,improving,4,3,1,won
+DEAL-0024,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,132000.0,28,4.1,declining,9,6,0,lost
+DEAL-0025,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,739000.0,105,65.0,improving,4,3,0,lost
+DEAL-0026,Krypton Labs,Krypton Labs - Enterprise Platform Renewal & Expansion,Closed,1182000.0,111,50.3,declining,5,6,4,lost
+DEAL-0027,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,459000.0,151,53.1,improving,1,5,2,stalled
+DEAL-0028,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,1282000.0,17,69.2,improving,3,6,1,stalled
+DEAL-0029,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,368000.0,148,18.1,declining,2,0,4,stalled
+DEAL-0030,ZeroDay Defense,ZeroDay Defense - Digital Transformation Deal,Closed,406000.0,83,17.6,stable,11,1,2,won
+DEAL-0031,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,939000.0,28,5.7,improving,10,4,2,won
+DEAL-0032,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,1321000.0,75,11.8,declining,6,5,2,lost
+DEAL-0033,ZeroDay Defense,ZeroDay Defense - Digital Transformation Deal,Closed,1229000.0,172,7.9,improving,5,2,0,lost
+DEAL-0034,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,915000.0,90,15.1,declining,12,6,2,lost
+DEAL-0035,Krypton Labs,Krypton Labs - Enterprise Platform Renewal & Expansion,Closed,1272000.0,165,30.8,stable,2,0,0,stalled
+DEAL-0036,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,408000.0,116,39.9,stable,12,4,0,stalled
+DEAL-0037,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,1255000.0,144,11.1,improving,10,0,2,won
+DEAL-0038,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,331000.0,173,7.8,declining,4,6,3,lost
+DEAL-0039,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,370000.0,48,63.5,improving,3,1,2,lost
+DEAL-0040,Sentinels Security,Sentinels Security - Enterprise Platform Renewal & Expansion,Closed,1299000.0,71,11.9,declining,4,0,3,lost
+DEAL-0041,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,1229000.0,92,22.3,improving,8,1,0,stalled
+DEAL-0042,ScaleGrid,ScaleGrid - Digital Transformation Deal,Closed,1299000.0,92,46.4,stable,5,5,4,stalled
+DEAL-0043,Apex Global,Apex Global - Digital Transformation Deal,Closed,1456000.0,151,69.3,stable,3,0,0,lost
+DEAL-0044,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,484000.0,133,8.8,declining,10,1,2,won
+DEAL-0045,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,1390000.0,178,51.9,declining,9,5,1,stalled
+DEAL-0046,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,1383000.0,83,47.9,improving,10,5,2,stalled
+DEAL-0047,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,1052000.0,35,14.2,declining,9,3,1,stalled
+DEAL-0048,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1254000.0,76,15.5,declining,5,4,2,lost
+DEAL-0049,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,777000.0,46,47.6,stable,12,4,4,stalled
+DEAL-0050,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,352000.0,40,2.2,improving,4,3,4,lost
+DEAL-0051,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,1331000.0,52,51.9,stable,10,3,3,stalled
+DEAL-0052,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,1293000.0,111,16.1,declining,2,4,3,stalled
+DEAL-0053,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,200000.0,121,48.2,declining,3,4,2,lost
+DEAL-0054,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,1085000.0,112,59.9,declining,9,3,1,lost
+DEAL-0055,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,1133000.0,73,55.3,declining,11,3,1,stalled
+DEAL-0056,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,367000.0,84,64.4,improving,6,1,1,stalled
+DEAL-0057,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,115000.0,87,39.3,stable,7,0,1,lost
+DEAL-0058,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,884000.0,8,61.8,declining,12,3,3,won
+DEAL-0059,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,597000.0,140,53.9,declining,7,6,4,lost
+DEAL-0060,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,665000.0,102,24.5,declining,1,6,3,lost
+DEAL-0061,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,1471000.0,9,65.3,declining,9,4,0,stalled
+DEAL-0062,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,703000.0,69,27.6,improving,1,3,2,stalled
+DEAL-0063,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,1428000.0,67,60.2,stable,7,0,4,stalled
+DEAL-0064,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,122000.0,13,54.4,improving,11,1,0,stalled
+DEAL-0065,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,1011000.0,58,33.7,stable,10,6,2,won
+DEAL-0066,DataCore Inc,DataCore Inc - Enterprise Platform Renewal & Expansion,Closed,262000.0,30,41.9,stable,5,4,3,stalled
+DEAL-0067,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,1042000.0,65,7.8,stable,11,6,4,lost
+DEAL-0068,Aether Systems,Aether Systems - Digital Transformation Deal,Closed,654000.0,20,36.7,stable,6,0,3,lost
+DEAL-0069,CyberShield,CyberShield - Digital Transformation Deal,Closed,556000.0,42,31.6,declining,8,4,2,lost
+DEAL-0070,Aura Insights,Aura Insights - Enterprise Platform Renewal & Expansion,Closed,708000.0,154,19.7,improving,12,6,0,stalled
+DEAL-0071,Titan Technologies,Titan Technologies - Digital Transformation Deal,Closed,708000.0,174,27.6,improving,10,3,2,stalled
+DEAL-0072,Hyperion Systems,Hyperion Systems - Digital Transformation Deal,Closed,402000.0,155,50.6,stable,5,4,0,lost
+DEAL-0073,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,1086000.0,145,54.7,declining,8,3,3,lost
+DEAL-0074,Apex Global,Apex Global - Digital Transformation Deal,Closed,348000.0,65,22.4,declining,12,2,3,stalled
+DEAL-0075,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,1124000.0,93,50.8,stable,6,2,2,stalled
+DEAL-0076,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,1119000.0,50,14.2,declining,12,3,2,lost
+DEAL-0077,ZeroDay Defense,ZeroDay Defense - Enterprise Platform Renewal & Expansion,Closed,1471000.0,78,16.8,improving,4,2,0,stalled
+DEAL-0078,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,1462000.0,77,50.4,improving,9,5,3,stalled
+DEAL-0079,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,715000.0,90,13.7,improving,8,2,3,won
+DEAL-0080,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,130000.0,178,4.3,improving,11,6,4,lost
+DEAL-0081,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,195000.0,158,43.1,declining,7,1,4,stalled
+DEAL-0082,Titan Technologies,Titan Technologies - Digital Transformation Deal,Closed,891000.0,81,41.2,improving,7,4,0,lost
+DEAL-0083,Hyperion Systems,Hyperion Systems - Enterprise Platform Renewal & Expansion,Closed,412000.0,43,17.7,declining,2,0,1,won
+DEAL-0084,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,715000.0,62,21.1,stable,1,5,3,stalled
+DEAL-0085,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,1186000.0,153,47.8,improving,11,3,0,lost
+DEAL-0086,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,1243000.0,18,12.4,stable,2,4,4,lost
+DEAL-0087,Titan Technologies,Titan Technologies - Digital Transformation Deal,Closed,1039000.0,106,67.9,declining,12,4,3,lost
+DEAL-0088,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,1107000.0,67,2.3,improving,10,5,4,stalled
+DEAL-0089,Apex Global,Apex Global - Enterprise Platform Renewal & Expansion,Closed,1015000.0,150,3.4,improving,5,3,4,lost
+DEAL-0090,Luminary Data,Luminary Data - Digital Transformation Deal,Closed,886000.0,128,69.8,stable,11,2,3,stalled
+DEAL-0091,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,508000.0,129,21.1,stable,12,6,4,won
+DEAL-0092,CloudScale,CloudScale - Digital Transformation Deal,Closed,498000.0,134,59.5,improving,7,5,4,lost
+DEAL-0093,BlueWave Tech,BlueWave Tech - Digital Transformation Deal,Closed,555000.0,163,32.1,improving,8,1,2,stalled
+DEAL-0094,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,1053000.0,10,70.1,declining,2,6,1,lost
+DEAL-0095,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,837000.0,60,71.4,improving,2,3,0,lost
+DEAL-0096,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,1081000.0,72,30.2,stable,9,3,1,stalled
+DEAL-0097,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,1384000.0,37,62.3,stable,9,6,3,stalled
+DEAL-0098,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,24000.0,79,60.4,declining,12,5,3,lost
+DEAL-0099,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,531000.0,142,27.5,stable,9,6,1,lost
+DEAL-0100,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,366000.0,14,23.2,stable,7,5,3,stalled
+DEAL-0101,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,75000.0,154,24.2,improving,9,6,3,stalled
+DEAL-0102,Vanguard Cloud,Vanguard Cloud - Digital Transformation Deal,Closed,233000.0,42,5.9,stable,11,2,4,stalled
+DEAL-0103,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,1281000.0,100,68.7,declining,9,5,3,lost
+DEAL-0104,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,367000.0,76,71.8,declining,11,0,3,lost
+DEAL-0105,CyberShield,CyberShield - Digital Transformation Deal,Closed,1047000.0,14,23.7,improving,1,2,2,stalled
+DEAL-0106,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,630000.0,49,12.7,improving,11,4,3,stalled
+DEAL-0107,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,883000.0,121,46.1,stable,4,2,0,lost
+DEAL-0108,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,1023000.0,21,32.1,stable,3,4,2,lost
+DEAL-0109,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,696000.0,53,72.0,stable,5,0,1,stalled
+DEAL-0110,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,1489000.0,8,70.4,declining,5,3,2,won
+DEAL-0111,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,1123000.0,61,43.9,stable,5,1,1,stalled
+DEAL-0112,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,1357000.0,13,22.6,stable,11,0,4,stalled
+DEAL-0113,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,457000.0,109,13.1,improving,12,6,4,lost
+DEAL-0114,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,1372000.0,68,65.9,stable,3,6,2,lost
+DEAL-0115,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,713000.0,39,54.4,improving,2,6,3,lost
+DEAL-0116,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,604000.0,140,9.3,stable,5,5,2,lost
+DEAL-0117,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,366000.0,161,63.7,declining,1,2,4,stalled
+DEAL-0118,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,707000.0,80,46.9,improving,12,1,0,lost
+DEAL-0119,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,192000.0,140,10.2,stable,4,2,4,lost
+DEAL-0120,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,989000.0,160,29.7,stable,8,0,2,stalled
+DEAL-0121,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,1286000.0,178,26.8,declining,2,2,0,stalled
+DEAL-0122,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,1425000.0,26,47.9,declining,8,5,4,lost
+DEAL-0123,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,380000.0,147,15.2,declining,3,1,4,stalled
+DEAL-0124,InfiniTech,InfiniTech - Digital Transformation Deal,Closed,238000.0,3,20.3,improving,10,1,4,won
+DEAL-0125,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,1302000.0,6,26.1,improving,3,4,2,won
+DEAL-0126,Krypton Labs,Krypton Labs - Digital Transformation Deal,Closed,1118000.0,32,53.8,stable,9,3,2,stalled
+DEAL-0127,CyberShield,CyberShield - Digital Transformation Deal,Closed,348000.0,14,52.5,declining,10,4,2,lost
+DEAL-0128,Apex Global,Apex Global - Digital Transformation Deal,Closed,729000.0,112,49.6,stable,7,5,3,stalled
+DEAL-0129,CloudScale,CloudScale - Digital Transformation Deal,Closed,240000.0,73,45.1,declining,3,4,2,stalled
+DEAL-0130,ZeroDay Defense,ZeroDay Defense - Digital Transformation Deal,Closed,768000.0,28,57.2,improving,7,6,4,lost
+DEAL-0131,Hyperion Systems,Hyperion Systems - Digital Transformation Deal,Closed,1334000.0,89,59.7,stable,7,3,0,stalled
+DEAL-0132,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,574000.0,178,66.5,improving,3,0,0,stalled
+DEAL-0133,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,572000.0,145,4.8,declining,3,4,2,lost
+DEAL-0134,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,1005000.0,16,69.7,declining,7,2,2,stalled
+DEAL-0135,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,992000.0,30,25.5,declining,4,2,0,lost
+DEAL-0136,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,1271000.0,160,48.8,declining,10,0,4,lost
+DEAL-0137,Luminary Data,Luminary Data - Digital Transformation Deal,Closed,424000.0,89,25.6,improving,5,6,1,stalled
+DEAL-0138,ScaleGrid,ScaleGrid - Digital Transformation Deal,Closed,1117000.0,26,53.8,improving,1,3,3,lost
+DEAL-0139,Forward Media,Forward Media - Digital Transformation Deal,Closed,1088000.0,155,6.6,improving,10,1,1,lost
+DEAL-0140,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,423000.0,111,35.2,stable,11,3,2,stalled
+DEAL-0141,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,656000.0,176,49.0,stable,5,4,2,won
+DEAL-0142,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,101000.0,80,68.1,improving,4,6,2,stalled
+DEAL-0143,DataCore Inc,DataCore Inc - Digital Transformation Deal,Closed,1126000.0,36,27.7,declining,3,1,4,lost
+DEAL-0144,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,1295000.0,114,1.8,improving,1,6,2,lost
+DEAL-0145,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,638000.0,106,2.0,stable,2,1,4,lost
+DEAL-0146,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,1270000.0,114,42.6,declining,4,0,3,lost
+DEAL-0147,Optima Solutions,Optima Solutions - Digital Transformation Deal,Closed,1173000.0,133,45.8,declining,2,4,1,lost
+DEAL-0148,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,1438000.0,40,17.4,improving,11,2,1,won
+DEAL-0149,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,990000.0,163,35.8,declining,3,6,4,lost
+DEAL-0150,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,948000.0,115,5.4,stable,3,5,2,lost
+DEAL-0151,BlueWave Tech,BlueWave Tech - Digital Transformation Deal,Closed,130000.0,118,3.2,stable,8,6,2,stalled
+DEAL-0152,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,770000.0,151,40.1,declining,8,0,3,lost
+DEAL-0153,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,724000.0,18,32.7,stable,3,5,0,lost
+DEAL-0154,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,1067000.0,137,37.9,improving,8,2,2,lost
+DEAL-0155,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,521000.0,16,56.9,declining,10,2,0,stalled
+DEAL-0156,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,1091000.0,157,62.9,stable,11,0,4,lost
+DEAL-0157,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,991000.0,103,9.7,declining,11,0,2,stalled
+DEAL-0158,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,1012000.0,178,65.7,improving,12,5,3,lost
+DEAL-0159,Apex Global,Apex Global - Digital Transformation Deal,Closed,287000.0,90,68.3,stable,4,1,1,lost
+DEAL-0160,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,1270000.0,132,55.6,declining,2,4,0,lost
+DEAL-0161,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,248000.0,180,55.6,improving,3,5,3,won
+DEAL-0162,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,372000.0,159,20.9,declining,8,6,3,stalled
+DEAL-0163,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,1217000.0,52,26.8,declining,8,3,3,lost
+DEAL-0164,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,640000.0,54,57.8,improving,3,6,2,stalled
+DEAL-0165,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,841000.0,135,61.4,stable,2,0,1,stalled
+DEAL-0166,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,667000.0,118,63.8,improving,4,3,0,stalled
+DEAL-0167,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,1492000.0,60,2.5,improving,6,6,2,lost
+DEAL-0168,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,1378000.0,38,54.8,stable,8,3,4,won
+DEAL-0169,CloudScale,CloudScale - Digital Transformation Deal,Closed,339000.0,143,67.7,declining,3,4,3,stalled
+DEAL-0170,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,200000.0,110,46.2,declining,4,3,0,stalled
+DEAL-0171,Velocity Networks,Velocity Networks - Enterprise Platform Renewal & Expansion,Closed,44000.0,150,17.8,improving,9,2,3,won
+DEAL-0172,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,637000.0,174,6.6,stable,11,0,4,lost
+DEAL-0173,Zenith Enterprise,Zenith Enterprise - Enterprise Platform Renewal & Expansion,Closed,598000.0,14,46.0,stable,8,2,0,won
+DEAL-0174,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,1105000.0,29,55.7,declining,11,6,2,stalled
+DEAL-0175,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,1224000.0,178,33.7,declining,3,3,1,lost
+DEAL-0176,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,1417000.0,78,14.9,improving,1,0,2,lost
+DEAL-0177,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,1227000.0,67,3.1,declining,8,1,2,stalled
+DEAL-0178,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,511000.0,97,31.7,stable,2,5,3,lost
+DEAL-0179,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,296000.0,130,26.8,declining,12,2,0,lost
+DEAL-0180,CloudScale,CloudScale - Digital Transformation Deal,Closed,1493000.0,142,21.5,improving,3,0,2,stalled
+DEAL-0181,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1082000.0,179,32.2,stable,3,0,2,lost
+DEAL-0182,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,1470000.0,22,48.5,stable,1,2,4,lost
+DEAL-0183,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,231000.0,176,56.4,improving,10,1,0,stalled
+DEAL-0184,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,1425000.0,157,11.5,stable,1,2,2,lost
+DEAL-0185,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,804000.0,83,46.9,improving,7,0,0,stalled
+DEAL-0186,Velocity Networks,Velocity Networks - Enterprise Platform Renewal & Expansion,Closed,1372000.0,70,55.9,declining,2,3,1,lost
+DEAL-0187,Matrix Networks,Matrix Networks - Enterprise Platform Renewal & Expansion,Closed,1498000.0,34,10.2,improving,4,3,1,lost
+DEAL-0188,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,1220000.0,173,25.3,improving,6,4,4,stalled
+DEAL-0189,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,1073000.0,166,12.9,stable,12,4,1,stalled
+DEAL-0190,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,370000.0,9,26.3,declining,8,2,3,lost
+DEAL-0191,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,148000.0,104,72.0,declining,5,3,4,lost
+DEAL-0192,Sentinels Security,Sentinels Security - Enterprise Platform Renewal & Expansion,Closed,129000.0,167,5.8,stable,6,5,4,stalled
+DEAL-0193,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,211000.0,17,59.9,declining,9,1,2,stalled
+DEAL-0194,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,354000.0,75,61.0,stable,9,1,4,stalled
+DEAL-0195,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,158000.0,46,42.8,declining,11,1,1,stalled
+DEAL-0196,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,854000.0,23,3.8,declining,1,6,4,stalled
+DEAL-0197,Hyperion Systems,Hyperion Systems - Enterprise Platform Renewal & Expansion,Closed,637000.0,10,36.1,declining,11,4,2,lost
+DEAL-0198,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1211000.0,106,21.8,improving,11,5,0,won
+DEAL-0199,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,322000.0,39,22.8,declining,10,2,2,lost
+DEAL-0200,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,782000.0,84,17.8,improving,2,2,3,stalled
+DEAL-0201,CyberShield,CyberShield - Digital Transformation Deal,Closed,1419000.0,110,18.3,improving,10,6,2,lost
+DEAL-0202,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,256000.0,122,36.2,stable,9,3,0,stalled
+DEAL-0203,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,1451000.0,152,25.7,improving,4,2,3,stalled
+DEAL-0204,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,32000.0,113,10.1,stable,2,5,2,lost
+DEAL-0205,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,96000.0,52,26.4,stable,9,0,3,stalled
+DEAL-0206,Luminary Data,Luminary Data - Enterprise Platform Renewal & Expansion,Closed,942000.0,33,9.7,improving,10,3,2,stalled
+DEAL-0207,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,561000.0,53,43.6,stable,3,4,0,won
+DEAL-0208,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,1210000.0,119,11.1,declining,9,1,2,lost
+DEAL-0209,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,1486000.0,79,43.0,declining,12,6,4,lost
+DEAL-0210,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,45000.0,175,8.3,stable,6,4,2,lost
+DEAL-0211,Apex Global,Apex Global - Enterprise Platform Renewal & Expansion,Closed,413000.0,151,41.8,declining,11,0,4,lost
+DEAL-0212,ZeroDay Defense,ZeroDay Defense - Enterprise Platform Renewal & Expansion,Closed,937000.0,40,59.2,improving,7,0,4,lost
+DEAL-0213,DataCore Inc,DataCore Inc - Digital Transformation Deal,Closed,673000.0,41,30.0,improving,7,3,4,lost
+DEAL-0214,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,1109000.0,38,37.6,declining,1,2,3,lost
+DEAL-0215,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,700000.0,90,39.6,declining,9,6,2,lost
+DEAL-0216,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,433000.0,60,67.8,stable,5,6,2,lost
+DEAL-0217,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,536000.0,73,21.1,declining,12,5,4,stalled
+DEAL-0218,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,1433000.0,77,3.5,declining,3,0,2,lost
+DEAL-0219,Krypton Labs,Krypton Labs - Enterprise Platform Renewal & Expansion,Closed,337000.0,72,67.2,declining,9,2,1,stalled
+DEAL-0220,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,1011000.0,60,46.1,improving,9,0,3,won
+DEAL-0221,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,1161000.0,143,70.4,improving,1,3,3,lost
+DEAL-0222,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,445000.0,168,4.7,improving,5,5,4,stalled
+DEAL-0223,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,279000.0,12,71.8,stable,3,6,3,stalled
+DEAL-0224,Matrix Networks,Matrix Networks - Enterprise Platform Renewal & Expansion,Closed,34000.0,157,8.2,stable,10,2,3,lost
+DEAL-0225,Aura Insights,Aura Insights - Enterprise Platform Renewal & Expansion,Closed,1336000.0,132,34.0,improving,3,6,0,stalled
+DEAL-0226,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,1084000.0,89,57.0,declining,1,5,1,stalled
+DEAL-0227,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,783000.0,105,48.4,improving,2,1,3,stalled
+DEAL-0228,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,588000.0,71,68.7,stable,8,4,4,won
+DEAL-0229,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,112000.0,122,22.4,stable,2,5,4,lost
+DEAL-0230,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,965000.0,97,44.4,improving,5,1,3,won
+DEAL-0231,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,833000.0,140,57.8,improving,8,6,1,lost
+DEAL-0232,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,802000.0,22,66.1,improving,6,0,4,lost
+DEAL-0233,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,242000.0,136,32.1,declining,6,1,4,lost
+DEAL-0234,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,102000.0,134,30.2,declining,3,0,4,lost
+DEAL-0235,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,606000.0,58,41.8,improving,1,3,2,lost
+DEAL-0236,Aura Insights,Aura Insights - Enterprise Platform Renewal & Expansion,Closed,1403000.0,123,2.8,stable,2,1,1,lost
+DEAL-0237,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,1339000.0,99,27.4,declining,8,5,4,stalled
+DEAL-0238,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,1489000.0,138,9.6,improving,7,6,0,lost
+DEAL-0239,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1084000.0,139,27.6,improving,7,1,3,stalled
+DEAL-0240,Luminary Data,Luminary Data - Digital Transformation Deal,Closed,1315000.0,11,58.4,stable,2,4,0,stalled
+DEAL-0241,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,70000.0,175,50.8,improving,10,1,0,lost
+DEAL-0242,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,1136000.0,38,36.5,stable,1,1,4,stalled
+DEAL-0243,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,1317000.0,136,16.3,stable,11,2,0,stalled
+DEAL-0244,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,652000.0,15,70.0,declining,8,5,3,lost
+DEAL-0245,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,624000.0,99,13.6,declining,5,3,1,lost
+DEAL-0246,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,234000.0,17,40.7,stable,8,4,4,stalled
+DEAL-0247,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,509000.0,118,61.1,improving,2,4,1,stalled
+DEAL-0248,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,912000.0,51,58.0,declining,2,5,4,stalled
+DEAL-0249,Hyperion Systems,Hyperion Systems - Enterprise Platform Renewal & Expansion,Closed,513000.0,57,67.5,declining,1,0,3,lost
+DEAL-0250,Hyperion Systems,Hyperion Systems - Digital Transformation Deal,Closed,374000.0,75,27.7,declining,6,5,2,stalled
+DEAL-0251,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,756000.0,123,55.0,stable,2,1,2,stalled
+DEAL-0252,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,347000.0,7,19.1,declining,3,4,3,stalled
+DEAL-0253,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,582000.0,130,39.9,declining,4,2,2,lost
+DEAL-0254,Velocity Networks,Velocity Networks - Enterprise Platform Renewal & Expansion,Closed,970000.0,120,12.5,stable,8,1,1,lost
+DEAL-0255,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,1336000.0,18,38.0,improving,11,6,0,lost
+DEAL-0256,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,953000.0,41,1.2,declining,2,3,2,stalled
+DEAL-0257,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,43000.0,144,29.9,improving,9,4,2,stalled
+DEAL-0258,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,1223000.0,113,58.1,improving,11,0,0,stalled
+DEAL-0259,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,799000.0,71,57.3,improving,6,2,3,stalled
+DEAL-0260,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,354000.0,23,47.2,declining,11,6,0,stalled
+DEAL-0261,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,724000.0,5,50.8,improving,11,3,3,stalled
+DEAL-0262,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,1290000.0,138,66.2,improving,2,1,4,lost
+DEAL-0263,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,1033000.0,142,40.8,improving,5,1,2,won
+DEAL-0264,Hyperion Systems,Hyperion Systems - Enterprise Platform Renewal & Expansion,Closed,1133000.0,104,66.9,stable,12,1,4,stalled
+DEAL-0265,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,820000.0,38,57.0,declining,7,5,0,lost
+DEAL-0266,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,667000.0,90,43.8,declining,2,4,3,lost
+DEAL-0267,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,425000.0,128,16.8,declining,8,3,3,stalled
+DEAL-0268,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,936000.0,21,6.4,improving,4,3,1,stalled
+DEAL-0269,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,155000.0,116,26.2,stable,5,0,1,won
+DEAL-0270,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,841000.0,29,2.4,stable,7,4,0,stalled
+DEAL-0271,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,38000.0,102,56.2,declining,7,4,1,lost
+DEAL-0272,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,271000.0,80,19.7,improving,5,0,1,won
+DEAL-0273,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,1178000.0,67,68.0,declining,6,5,3,lost
+DEAL-0274,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,221000.0,104,24.3,declining,1,3,2,lost
+DEAL-0275,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,1292000.0,37,22.0,declining,10,5,1,lost
+DEAL-0276,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,1454000.0,180,45.8,declining,5,6,1,stalled
+DEAL-0277,Luminary Data,Luminary Data - Enterprise Platform Renewal & Expansion,Closed,602000.0,147,14.8,declining,2,1,4,won
+DEAL-0278,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,330000.0,180,5.4,stable,5,5,3,stalled
+DEAL-0279,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,995000.0,111,56.9,improving,12,3,4,lost
+DEAL-0280,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,1387000.0,110,39.4,stable,12,5,4,lost
+DEAL-0281,CloudScale,CloudScale - Digital Transformation Deal,Closed,387000.0,93,12.4,declining,11,0,4,lost
+DEAL-0282,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,511000.0,30,1.3,stable,7,1,4,lost
+DEAL-0283,InfiniTech,InfiniTech - Digital Transformation Deal,Closed,599000.0,153,49.9,improving,11,2,0,stalled
+DEAL-0284,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,1443000.0,39,25.4,stable,2,3,1,lost
+DEAL-0285,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,668000.0,118,23.3,stable,12,0,0,won
+DEAL-0286,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,1022000.0,65,37.4,declining,3,1,2,lost
+DEAL-0287,Vanguard Cloud,Vanguard Cloud - Digital Transformation Deal,Closed,619000.0,50,46.3,stable,3,3,0,lost
+DEAL-0288,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,656000.0,57,15.2,declining,1,6,0,lost
+DEAL-0289,Aura Insights,Aura Insights - Digital Transformation Deal,Closed,502000.0,32,19.3,stable,8,4,2,stalled
+DEAL-0290,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,535000.0,161,12.8,declining,8,5,2,lost
+DEAL-0291,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,484000.0,81,8.9,stable,4,5,1,stalled
+DEAL-0292,Sentinels Security,Sentinels Security - Enterprise Platform Renewal & Expansion,Closed,871000.0,50,35.3,declining,7,5,1,lost
+DEAL-0293,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,297000.0,161,4.3,stable,8,0,3,stalled
+DEAL-0294,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,768000.0,107,49.5,stable,8,5,3,lost
+DEAL-0295,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,1198000.0,77,2.8,improving,4,4,2,won
+DEAL-0296,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,1163000.0,143,37.0,declining,8,0,2,lost
+DEAL-0297,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,1140000.0,115,39.6,stable,12,0,1,stalled
+DEAL-0298,Aether Systems,Aether Systems - Digital Transformation Deal,Closed,536000.0,115,62.4,improving,2,6,1,stalled
+DEAL-0299,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,923000.0,45,44.6,improving,7,6,1,lost
+DEAL-0300,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,903000.0,85,70.5,stable,3,2,4,stalled
+DEAL-0301,Zenith Enterprise,Zenith Enterprise - Enterprise Platform Renewal & Expansion,Closed,1025000.0,37,69.3,stable,2,0,2,lost
+DEAL-0302,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,216000.0,85,59.7,declining,3,3,3,stalled
+DEAL-0303,Luminary Data,Luminary Data - Enterprise Platform Renewal & Expansion,Closed,575000.0,165,57.3,improving,2,3,4,lost
+DEAL-0304,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,742000.0,3,62.6,declining,10,0,3,lost
+DEAL-0305,Pinnacle Networks,Pinnacle Networks - Enterprise Platform Renewal & Expansion,Closed,1198000.0,58,69.7,improving,7,3,2,stalled
+DEAL-0306,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,875000.0,127,56.9,declining,10,6,0,won
+DEAL-0307,Vanguard Cloud,Vanguard Cloud - Digital Transformation Deal,Closed,1396000.0,115,33.1,stable,3,1,1,lost
+DEAL-0308,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1400000.0,26,47.3,stable,5,0,2,stalled
+DEAL-0309,Forward Media,Forward Media - Digital Transformation Deal,Closed,946000.0,62,31.2,improving,12,5,0,won
+DEAL-0310,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,899000.0,177,32.3,improving,9,5,2,lost
+DEAL-0311,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,727000.0,101,6.9,improving,4,0,2,won
+DEAL-0312,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1165000.0,167,71.5,improving,3,0,4,lost
+DEAL-0313,Forward Media,Forward Media - Digital Transformation Deal,Closed,1089000.0,41,66.3,declining,11,5,3,lost
+DEAL-0314,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,227000.0,153,52.7,stable,2,3,2,lost
+DEAL-0315,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,145000.0,156,43.4,declining,9,2,0,lost
+DEAL-0316,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,918000.0,103,21.6,improving,4,6,1,stalled
+DEAL-0317,DataCore Inc,DataCore Inc - Digital Transformation Deal,Closed,964000.0,138,64.0,improving,2,2,2,stalled
+DEAL-0318,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,1031000.0,21,1.7,improving,8,0,2,won
+DEAL-0319,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,609000.0,163,51.5,stable,5,3,3,stalled
+DEAL-0320,Aura Insights,Aura Insights - Enterprise Platform Renewal & Expansion,Closed,246000.0,82,6.2,improving,2,6,1,stalled
+DEAL-0321,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,1150000.0,177,46.5,stable,11,5,3,lost
+DEAL-0322,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,148000.0,32,32.9,declining,7,0,2,stalled
+DEAL-0323,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,1068000.0,5,12.2,stable,12,4,4,lost
+DEAL-0324,Krypton Labs,Krypton Labs - Digital Transformation Deal,Closed,208000.0,33,55.7,improving,5,2,3,stalled
+DEAL-0325,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,1463000.0,22,36.0,declining,11,2,0,stalled
+DEAL-0326,Forward Media,Forward Media - Digital Transformation Deal,Closed,398000.0,149,48.7,improving,2,1,4,won
+DEAL-0327,Acme Corp,Acme Corp - Digital Transformation Deal,Closed,718000.0,41,13.3,improving,7,4,3,stalled
+DEAL-0328,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,1086000.0,22,41.4,improving,5,4,0,won
+DEAL-0329,ZeroDay Defense,ZeroDay Defense - Enterprise Platform Renewal & Expansion,Closed,1432000.0,122,62.4,stable,2,2,0,lost
+DEAL-0330,Acme Corp,Acme Corp - Digital Transformation Deal,Closed,452000.0,162,17.8,stable,5,4,3,lost
+DEAL-0331,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,829000.0,41,1.0,stable,4,0,1,won
+DEAL-0332,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,22000.0,99,61.2,declining,11,2,0,stalled
+DEAL-0333,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,1443000.0,74,7.2,improving,3,6,4,lost
+DEAL-0334,Quantum Dynamics,Quantum Dynamics - Digital Transformation Deal,Closed,1127000.0,27,36.6,declining,10,6,3,stalled
+DEAL-0335,BlueWave Tech,BlueWave Tech - Digital Transformation Deal,Closed,1447000.0,77,19.2,stable,4,6,3,lost
+DEAL-0336,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,422000.0,54,10.2,declining,2,0,1,won
+DEAL-0337,Titan Technologies,Titan Technologies - Digital Transformation Deal,Closed,622000.0,94,69.5,improving,9,3,2,lost
+DEAL-0338,DataCore Inc,DataCore Inc - Digital Transformation Deal,Closed,1215000.0,157,3.4,stable,5,1,0,lost
+DEAL-0339,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,92000.0,69,59.1,improving,5,0,3,lost
+DEAL-0340,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,171000.0,34,1.4,improving,3,1,1,lost
+DEAL-0341,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,1408000.0,152,42.4,improving,2,0,0,stalled
+DEAL-0342,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,156000.0,34,3.6,stable,6,0,1,lost
+DEAL-0343,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,605000.0,100,49.3,improving,1,2,1,lost
+DEAL-0344,Luminary Data,Luminary Data - Digital Transformation Deal,Closed,1327000.0,160,44.8,improving,1,5,2,lost
+DEAL-0345,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,434000.0,110,14.8,declining,3,1,4,lost
+DEAL-0346,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,551000.0,127,25.1,declining,9,4,2,stalled
+DEAL-0347,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,904000.0,74,4.7,stable,1,4,2,lost
+DEAL-0348,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,168000.0,64,19.6,declining,11,0,1,stalled
+DEAL-0349,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,1262000.0,48,17.4,stable,3,6,2,lost
+DEAL-0350,Apex Global,Apex Global - Enterprise Platform Renewal & Expansion,Closed,540000.0,147,10.7,improving,10,6,3,lost
+DEAL-0351,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,154000.0,157,16.1,declining,4,3,0,stalled
+DEAL-0352,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,524000.0,85,4.8,improving,3,4,1,lost
+DEAL-0353,ZeroDay Defense,ZeroDay Defense - Enterprise Platform Renewal & Expansion,Closed,1442000.0,172,28.8,improving,6,2,2,stalled
+DEAL-0354,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,667000.0,127,46.9,improving,11,5,4,lost
+DEAL-0355,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,892000.0,99,22.4,declining,3,2,1,stalled
+DEAL-0356,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,1424000.0,148,2.8,declining,7,2,4,stalled
+DEAL-0357,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,228000.0,22,17.5,stable,12,1,0,stalled
+DEAL-0358,Optima Solutions,Optima Solutions - Digital Transformation Deal,Closed,413000.0,180,5.3,stable,4,6,0,lost
+DEAL-0359,BlueWave Tech,BlueWave Tech - Digital Transformation Deal,Closed,1104000.0,108,35.8,stable,3,2,4,stalled
+DEAL-0360,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,876000.0,60,12.1,improving,11,6,0,stalled
+DEAL-0361,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,175000.0,46,64.0,improving,6,5,0,stalled
+DEAL-0362,CloudScale,CloudScale - Digital Transformation Deal,Closed,1478000.0,10,31.3,declining,8,1,4,lost
+DEAL-0363,Forward Media,Forward Media - Digital Transformation Deal,Closed,510000.0,107,50.3,declining,4,5,4,stalled
+DEAL-0364,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,162000.0,149,39.8,stable,7,1,0,stalled
+DEAL-0365,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,1239000.0,156,34.8,improving,11,0,1,won
+DEAL-0366,Matrix Networks,Matrix Networks - Enterprise Platform Renewal & Expansion,Closed,721000.0,81,56.6,stable,2,3,2,stalled
+DEAL-0367,Aura Insights,Aura Insights - Digital Transformation Deal,Closed,569000.0,97,13.8,improving,7,2,3,stalled
+DEAL-0368,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,855000.0,173,7.4,declining,3,2,4,lost
+DEAL-0369,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,1264000.0,110,69.5,declining,9,6,3,lost
+DEAL-0370,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,137000.0,11,36.4,declining,12,6,4,lost
+DEAL-0371,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,1141000.0,45,70.0,improving,3,1,0,stalled
+DEAL-0372,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,1237000.0,155,18.9,declining,3,6,0,stalled
+DEAL-0373,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,1288000.0,120,66.1,improving,9,6,4,lost
+DEAL-0374,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,241000.0,153,42.2,improving,10,0,4,lost
+DEAL-0375,Matrix Networks,Matrix Networks - Enterprise Platform Renewal & Expansion,Closed,1323000.0,70,27.9,stable,7,4,4,lost
+DEAL-0376,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,233000.0,177,50.1,improving,10,3,2,lost
+DEAL-0377,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,1383000.0,8,24.7,stable,6,2,2,lost
+DEAL-0378,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,357000.0,116,55.8,stable,5,2,3,lost
+DEAL-0379,CloudScale,CloudScale - Digital Transformation Deal,Closed,333000.0,127,54.8,stable,7,6,0,lost
+DEAL-0380,Forward Media,Forward Media - Digital Transformation Deal,Closed,1070000.0,37,56.3,declining,7,4,0,stalled
+DEAL-0381,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,389000.0,15,66.1,declining,8,1,2,stalled
+DEAL-0382,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,960000.0,177,2.7,stable,2,3,4,lost
+DEAL-0383,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,538000.0,69,54.1,declining,3,0,2,won
+DEAL-0384,BlueWave Tech,BlueWave Tech - Digital Transformation Deal,Closed,867000.0,59,46.8,declining,4,1,2,stalled
+DEAL-0385,Zenith Enterprise,Zenith Enterprise - Digital Transformation Deal,Closed,1175000.0,5,34.4,improving,11,5,1,stalled
+DEAL-0386,Acme Corp,Acme Corp - Digital Transformation Deal,Closed,920000.0,167,20.2,stable,5,6,2,lost
+DEAL-0387,Hyperion Systems,Hyperion Systems - Digital Transformation Deal,Closed,1022000.0,104,42.3,improving,10,4,2,stalled
+DEAL-0388,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,180000.0,89,71.2,declining,2,2,2,stalled
+DEAL-0389,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,786000.0,17,58.1,declining,4,3,2,lost
+DEAL-0390,Apex Global,Apex Global - Enterprise Platform Renewal & Expansion,Closed,1496000.0,110,29.4,declining,5,0,4,lost
+DEAL-0391,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,1076000.0,139,46.1,stable,11,5,2,lost
+DEAL-0392,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,1317000.0,78,7.5,improving,3,5,2,lost
+DEAL-0393,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,1351000.0,25,16.4,improving,11,5,2,won
+DEAL-0394,Optima Solutions,Optima Solutions - Digital Transformation Deal,Closed,887000.0,33,34.1,declining,8,4,4,lost
+DEAL-0395,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,308000.0,177,27.8,stable,2,3,0,lost
+DEAL-0396,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,316000.0,148,64.3,stable,7,1,2,lost
+DEAL-0397,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,742000.0,48,22.9,improving,11,0,3,won
+DEAL-0398,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,254000.0,36,44.4,declining,2,3,3,lost
+DEAL-0399,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,76000.0,98,68.4,stable,4,6,4,stalled
+DEAL-0400,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,388000.0,91,22.8,improving,12,3,4,stalled
+DEAL-0401,Forward Media,Forward Media - Digital Transformation Deal,Closed,88000.0,119,52.5,declining,5,4,2,lost
+DEAL-0402,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,1354000.0,51,12.3,stable,6,0,1,won
+DEAL-0403,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,52000.0,46,9.3,declining,9,5,0,stalled
+DEAL-0404,Krypton Labs,Krypton Labs - Enterprise Platform Renewal & Expansion,Closed,942000.0,15,47.8,declining,10,6,0,won
+DEAL-0405,DataCore Inc,DataCore Inc - Digital Transformation Deal,Closed,583000.0,67,34.4,improving,9,1,0,won
+DEAL-0406,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,420000.0,38,30.4,improving,10,4,4,won
+DEAL-0407,DataCore Inc,DataCore Inc - Enterprise Platform Renewal & Expansion,Closed,757000.0,54,56.1,declining,10,1,2,lost
+DEAL-0408,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,831000.0,179,67.2,stable,4,1,0,won
+DEAL-0409,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,1256000.0,129,11.2,improving,11,6,4,stalled
+DEAL-0410,CyberShield,CyberShield - Enterprise Platform Renewal & Expansion,Closed,974000.0,78,19.4,improving,8,0,1,lost
+DEAL-0411,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,1022000.0,32,7.3,improving,7,0,1,won
+DEAL-0412,Forward Media,Forward Media - Digital Transformation Deal,Closed,1344000.0,71,63.3,improving,10,2,2,won
+DEAL-0413,ScaleGrid,ScaleGrid - Digital Transformation Deal,Closed,696000.0,179,61.3,stable,7,5,1,stalled
+DEAL-0414,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,1270000.0,109,65.7,stable,2,6,4,lost
+DEAL-0415,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,1173000.0,10,62.2,declining,10,1,3,lost
+DEAL-0416,DataCore Inc,DataCore Inc - Enterprise Platform Renewal & Expansion,Closed,672000.0,69,47.3,improving,2,5,4,lost
+DEAL-0417,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,1011000.0,135,37.9,declining,6,4,0,lost
+DEAL-0418,IronClad Security,IronClad Security - Digital Transformation Deal,Closed,1002000.0,101,11.1,declining,11,4,0,won
+DEAL-0419,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,715000.0,45,5.9,stable,8,2,1,won
+DEAL-0420,Luminary Data,Luminary Data - Digital Transformation Deal,Closed,350000.0,99,29.3,improving,11,0,3,stalled
+DEAL-0421,Titan Technologies,Titan Technologies - Digital Transformation Deal,Closed,758000.0,33,70.6,declining,6,5,0,stalled
+DEAL-0422,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,833000.0,157,69.4,declining,2,2,4,lost
+DEAL-0423,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,558000.0,60,60.9,stable,1,4,4,lost
+DEAL-0424,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,189000.0,59,0.7,stable,11,6,2,stalled
+DEAL-0425,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,88000.0,129,10.5,declining,3,5,3,stalled
+DEAL-0426,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,1397000.0,58,33.2,improving,7,5,2,won
+DEAL-0427,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,957000.0,153,9.3,stable,11,3,4,lost
+DEAL-0428,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,26000.0,15,40.1,stable,12,6,4,lost
+DEAL-0429,Zenith Enterprise,Zenith Enterprise - Enterprise Platform Renewal & Expansion,Closed,1367000.0,151,12.9,improving,12,0,3,stalled
+DEAL-0430,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,589000.0,180,55.0,stable,10,3,2,lost
+DEAL-0431,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,225000.0,134,21.9,declining,10,4,2,lost
+DEAL-0432,Hyperion Systems,Hyperion Systems - Digital Transformation Deal,Closed,944000.0,178,25.2,declining,5,1,1,lost
+DEAL-0433,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,1146000.0,125,42.2,declining,9,5,3,lost
+DEAL-0434,Aura Insights,Aura Insights - Digital Transformation Deal,Closed,1274000.0,136,8.1,stable,1,1,0,lost
+DEAL-0435,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,1183000.0,177,18.4,improving,5,5,2,stalled
+DEAL-0436,Aura Insights,Aura Insights - Digital Transformation Deal,Closed,1225000.0,160,62.6,declining,2,4,1,lost
+DEAL-0437,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,1181000.0,76,50.0,improving,12,3,3,stalled
+DEAL-0438,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,100000.0,67,15.0,stable,12,6,1,lost
+DEAL-0439,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,829000.0,53,56.0,improving,10,2,3,won
+DEAL-0440,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,277000.0,33,27.5,stable,9,2,4,stalled
+DEAL-0441,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,397000.0,122,51.2,improving,6,0,1,lost
+DEAL-0442,BlueWave Tech,BlueWave Tech - Enterprise Platform Renewal & Expansion,Closed,946000.0,80,35.6,declining,11,4,2,stalled
+DEAL-0443,OmniSoft,OmniSoft - Enterprise Platform Renewal & Expansion,Closed,1436000.0,20,56.7,improving,9,3,4,stalled
+DEAL-0444,CloudScale,CloudScale - Digital Transformation Deal,Closed,1327000.0,87,24.2,stable,11,1,4,stalled
+DEAL-0445,Acme Corp,Acme Corp - Digital Transformation Deal,Closed,532000.0,167,44.4,declining,4,1,0,lost
+DEAL-0446,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,1198000.0,101,18.8,declining,2,2,0,lost
+DEAL-0447,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,773000.0,14,21.7,declining,8,1,2,stalled
+DEAL-0448,CyberShield,CyberShield - Digital Transformation Deal,Closed,1435000.0,139,1.0,improving,9,1,1,lost
+DEAL-0449,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,324000.0,114,46.7,improving,12,5,1,won
+DEAL-0450,Optima Solutions,Optima Solutions - Digital Transformation Deal,Closed,128000.0,67,40.4,declining,3,6,1,lost
+DEAL-0451,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,953000.0,83,1.7,declining,7,0,4,won
+DEAL-0452,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,887000.0,21,26.1,declining,12,0,2,lost
+DEAL-0453,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,437000.0,100,28.8,declining,8,0,3,stalled
+DEAL-0454,InfiniTech,InfiniTech - Digital Transformation Deal,Closed,599000.0,78,69.1,improving,9,2,2,lost
+DEAL-0455,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,842000.0,13,0.9,declining,2,3,4,lost
+DEAL-0456,CloudScale,CloudScale - Digital Transformation Deal,Closed,1127000.0,91,15.6,declining,12,6,4,stalled
+DEAL-0457,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,1255000.0,32,13.5,declining,4,6,0,lost
+DEAL-0458,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,128000.0,20,18.4,improving,11,5,4,stalled
+DEAL-0459,Optima Solutions,Optima Solutions - Digital Transformation Deal,Closed,1014000.0,28,20.9,improving,4,1,2,won
+DEAL-0460,Optima Solutions,Optima Solutions - Enterprise Platform Renewal & Expansion,Closed,472000.0,42,40.9,stable,10,6,2,lost
+DEAL-0461,Forward Media,Forward Media - Digital Transformation Deal,Closed,384000.0,167,31.7,stable,4,1,2,lost
+DEAL-0462,Vanguard Cloud,Vanguard Cloud - Digital Transformation Deal,Closed,1167000.0,144,8.3,declining,8,4,0,lost
+DEAL-0463,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,311000.0,163,6.0,improving,12,0,4,stalled
+DEAL-0464,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,335000.0,144,19.1,declining,1,3,1,stalled
+DEAL-0465,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,893000.0,37,33.7,declining,5,0,3,stalled
+DEAL-0466,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,1275000.0,178,12.4,declining,10,1,3,stalled
+DEAL-0467,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,736000.0,13,16.1,stable,6,1,0,won
+DEAL-0468,InfiniTech,InfiniTech - Digital Transformation Deal,Closed,326000.0,102,34.1,stable,6,0,0,lost
+DEAL-0469,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,1453000.0,73,60.2,stable,11,4,4,lost
+DEAL-0470,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,561000.0,22,37.4,stable,11,1,4,stalled
+DEAL-0471,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,734000.0,4,36.4,improving,10,3,1,won
+DEAL-0472,Zenith Enterprise,Zenith Enterprise - Enterprise Platform Renewal & Expansion,Closed,333000.0,43,26.4,declining,3,6,0,lost
+DEAL-0473,Sentinels Security,Sentinels Security - Enterprise Platform Renewal & Expansion,Closed,1086000.0,175,34.7,improving,8,4,1,lost
+DEAL-0474,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,84000.0,154,12.0,declining,10,4,0,lost
+DEAL-0475,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,402000.0,135,69.0,declining,3,4,0,lost
+DEAL-0476,Matrix Networks,Matrix Networks - Enterprise Platform Renewal & Expansion,Closed,341000.0,123,62.5,improving,10,1,3,lost
+DEAL-0477,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,776000.0,178,25.0,stable,3,4,4,stalled
+DEAL-0478,Radiant Systems,Radiant Systems - Digital Transformation Deal,Closed,181000.0,136,62.0,declining,4,5,3,lost
+DEAL-0479,CyberShield,CyberShield - Digital Transformation Deal,Closed,1354000.0,12,63.3,declining,10,4,0,stalled
+DEAL-0480,Delta Analytics,Delta Analytics - Enterprise Platform Renewal & Expansion,Closed,818000.0,176,46.9,declining,1,3,2,lost
+DEAL-0481,ZeroDay Defense,ZeroDay Defense - Digital Transformation Deal,Closed,1409000.0,100,25.6,declining,8,6,4,stalled
+DEAL-0482,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,1153000.0,75,43.3,declining,2,3,2,stalled
+DEAL-0483,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,194000.0,99,47.3,declining,1,6,2,lost
+DEAL-0484,CyberShield,CyberShield - Digital Transformation Deal,Closed,984000.0,69,61.6,stable,5,4,2,lost
+DEAL-0485,ScaleGrid,ScaleGrid - Enterprise Platform Renewal & Expansion,Closed,632000.0,126,13.3,declining,9,4,3,stalled
+DEAL-0486,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,1166000.0,38,61.6,declining,7,0,1,lost
+DEAL-0487,Forward Media,Forward Media - Digital Transformation Deal,Closed,772000.0,143,44.4,declining,6,5,0,stalled
+DEAL-0488,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,1238000.0,156,31.6,improving,8,2,1,stalled
+DEAL-0489,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,1397000.0,160,47.4,stable,7,5,4,stalled
+DEAL-0490,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,670000.0,171,67.0,declining,4,2,1,won
+DEAL-0491,Zenith Enterprise,Zenith Enterprise - Enterprise Platform Renewal & Expansion,Closed,363000.0,175,3.1,improving,3,5,0,lost
+DEAL-0492,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,1174000.0,174,28.8,declining,6,1,4,won
+DEAL-0493,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,833000.0,146,65.9,stable,12,2,2,stalled
+DEAL-0494,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,618000.0,69,13.0,declining,1,0,4,stalled
+DEAL-0495,Matrix Networks,Matrix Networks - Digital Transformation Deal,Closed,193000.0,68,63.1,declining,9,2,3,lost
+DEAL-0496,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,1141000.0,177,33.4,declining,8,6,0,lost
+DEAL-0497,Krypton Labs,Krypton Labs - Digital Transformation Deal,Closed,958000.0,176,50.6,stable,4,3,2,lost
+DEAL-0498,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,410000.0,26,29.0,declining,5,6,2,stalled
+DEAL-0499,Frontier AI,Frontier AI - Digital Transformation Deal,Closed,543000.0,71,13.6,declining,10,5,1,lost
+DEAL-0500,Genesis Cloud,Genesis Cloud - Digital Transformation Deal,Closed,378000.0,55,16.9,improving,5,6,4,stalled
+DEAL-0501,CyberShield,CyberShield - Digital Transformation Deal,Closed,136000.0,129,44.4,declining,11,0,3,stalled
+DEAL-0502,OmniSoft,OmniSoft - Digital Transformation Deal,Closed,1478000.0,73,35.6,declining,10,2,3,stalled
+DEAL-0503,Delta Analytics,Delta Analytics - Digital Transformation Deal,Closed,1203000.0,141,2.8,stable,8,3,1,lost
+DEAL-0504,DataCore Inc,DataCore Inc - Enterprise Platform Renewal & Expansion,Closed,701000.0,5,1.3,improving,12,3,4,won
+DEAL-0505,Quantum Dynamics,Quantum Dynamics - Enterprise Platform Renewal & Expansion,Closed,404000.0,70,17.5,stable,9,4,2,stalled
+DEAL-0506,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,640000.0,96,61.6,stable,6,3,1,lost
+DEAL-0507,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,1087000.0,145,31.4,stable,4,1,1,lost
+DEAL-0508,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,34000.0,130,10.1,declining,7,4,4,lost
+DEAL-0509,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,852000.0,15,29.0,declining,10,1,0,stalled
+DEAL-0510,Krypton Labs,Krypton Labs - Digital Transformation Deal,Closed,952000.0,88,19.1,stable,8,4,4,lost
+DEAL-0511,Krypton Labs,Krypton Labs - Digital Transformation Deal,Closed,629000.0,176,69.4,improving,6,4,4,lost
+DEAL-0512,Aura Insights,Aura Insights - Digital Transformation Deal,Closed,1175000.0,86,48.6,stable,6,6,3,lost
+DEAL-0513,Radiant Systems,Radiant Systems - Enterprise Platform Renewal & Expansion,Closed,706000.0,45,46.3,stable,3,3,4,lost
+DEAL-0514,Beacon Dynamics,Beacon Dynamics - Digital Transformation Deal,Closed,529000.0,84,47.2,declining,6,2,4,lost
+DEAL-0515,Luminary Data,Luminary Data - Enterprise Platform Renewal & Expansion,Closed,1176000.0,153,37.7,stable,6,3,1,stalled
+DEAL-0516,Apex Global,Apex Global - Digital Transformation Deal,Closed,367000.0,23,15.6,stable,5,0,0,won
+DEAL-0517,Vertex Systems,Vertex Systems - Enterprise Platform Renewal & Expansion,Closed,59000.0,137,55.2,improving,7,0,2,stalled
+DEAL-0518,CloudScale,CloudScale - Enterprise Platform Renewal & Expansion,Closed,1330000.0,61,18.2,stable,5,3,1,won
+DEAL-0519,Forward Media,Forward Media - Digital Transformation Deal,Closed,1002000.0,124,33.9,declining,6,2,4,lost
+DEAL-0520,Aura Insights,Aura Insights - Digital Transformation Deal,Closed,904000.0,165,63.2,stable,11,4,4,stalled
+DEAL-0521,Pinnacle Networks,Pinnacle Networks - Digital Transformation Deal,Closed,356000.0,116,22.5,stable,2,2,1,stalled
+DEAL-0522,Acme Corp,Acme Corp - Enterprise Platform Renewal & Expansion,Closed,1142000.0,91,21.0,declining,3,0,3,lost
+DEAL-0523,Vertex Systems,Vertex Systems - Digital Transformation Deal,Closed,1153000.0,155,17.0,improving,5,4,2,won
+DEAL-0524,Stratum Software,Stratum Software - Digital Transformation Deal,Closed,262000.0,168,28.4,stable,12,1,2,won
+DEAL-0525,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,1204000.0,180,49.5,stable,10,5,4,lost
+DEAL-0526,Sentinels Security,Sentinels Security - Digital Transformation Deal,Closed,121000.0,77,8.4,stable,3,4,3,stalled
+DEAL-0527,Velocity Networks,Velocity Networks - Digital Transformation Deal,Closed,49000.0,139,2.1,improving,1,2,2,won
+DEAL-0528,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,365000.0,6,35.8,stable,3,3,2,lost
+DEAL-0529,Velocity Networks,Velocity Networks - Enterprise Platform Renewal & Expansion,Closed,706000.0,87,6.2,improving,1,0,2,lost
+DEAL-0530,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,289000.0,100,59.7,improving,5,6,1,stalled
+DEAL-0531,Titan Technologies,Titan Technologies - Digital Transformation Deal,Closed,1492000.0,120,53.1,improving,4,4,1,lost
+DEAL-0532,Nexus Enterprise,Nexus Enterprise - Enterprise Platform Renewal & Expansion,Closed,255000.0,13,53.7,declining,12,4,0,stalled
+DEAL-0533,Nexus Enterprise,Nexus Enterprise - Digital Transformation Deal,Closed,1334000.0,58,70.1,improving,11,5,3,stalled
+DEAL-0534,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,885000.0,65,1.1,improving,7,4,3,stalled
+DEAL-0535,Evolve Logic,Evolve Logic - Digital Transformation Deal,Closed,152000.0,130,7.0,declining,3,2,0,stalled
+DEAL-0536,Evolve Logic,Evolve Logic - Enterprise Platform Renewal & Expansion,Closed,1191000.0,127,17.1,declining,3,6,2,lost
+DEAL-0537,Titan Technologies,Titan Technologies - Enterprise Platform Renewal & Expansion,Closed,52000.0,94,52.3,stable,7,0,3,lost
+DEAL-0538,Matrix Networks,Matrix Networks - Enterprise Platform Renewal & Expansion,Closed,745000.0,50,39.4,stable,10,5,3,stalled
+DEAL-0539,Forward Media,Forward Media - Digital Transformation Deal,Closed,249000.0,70,39.2,stable,5,0,4,stalled
+DEAL-0540,Frontier AI,Frontier AI - Enterprise Platform Renewal & Expansion,Closed,937000.0,161,17.6,declining,6,0,4,lost
+DEAL-0541,Genesis Cloud,Genesis Cloud - Enterprise Platform Renewal & Expansion,Closed,756000.0,42,44.3,stable,9,3,2,won
+DEAL-0542,ZeroDay Defense,ZeroDay Defense - Enterprise Platform Renewal & Expansion,Closed,85000.0,48,63.0,improving,3,0,3,stalled
+DEAL-0543,Aether Systems,Aether Systems - Enterprise Platform Renewal & Expansion,Closed,1258000.0,128,38.1,declining,11,4,2,won
+DEAL-0544,InfiniTech,InfiniTech - Enterprise Platform Renewal & Expansion,Closed,125000.0,170,35.6,improving,4,3,0,stalled
+DEAL-0545,Sentinels Security,Sentinels Security - Enterprise Platform Renewal & Expansion,Closed,1195000.0,160,19.5,improving,1,5,0,lost
+DEAL-0546,Beacon Dynamics,Beacon Dynamics - Enterprise Platform Renewal & Expansion,Closed,1442000.0,28,52.3,declining,2,3,1,stalled
+DEAL-0547,IronClad Security,IronClad Security - Enterprise Platform Renewal & Expansion,Closed,1422000.0,145,30.2,improving,9,6,4,stalled
+DEAL-0548,Vanguard Cloud,Vanguard Cloud - Enterprise Platform Renewal & Expansion,Closed,652000.0,45,57.2,declining,2,3,4,stalled
+DEAL-0549,Forward Media,Forward Media - Enterprise Platform Renewal & Expansion,Closed,908000.0,83,39.8,stable,6,6,2,lost
+DEAL-0550,Stratum Software,Stratum Software - Enterprise Platform Renewal & Expansion,Closed,499000.0,147,39.5,stable,4,6,4,lost

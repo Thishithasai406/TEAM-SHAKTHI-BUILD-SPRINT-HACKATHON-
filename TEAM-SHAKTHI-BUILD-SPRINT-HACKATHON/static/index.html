@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DealIQ - At-Risk Deal Radar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkbg: '#0B0F1A',
+                        glassborder: 'rgba(255, 255, 255, 0.08)',
+                        glassbg: 'rgba(15, 23, 42, 0.65)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F1A;
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism card base */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Border Beam Glow Animation for Pipeline At Risk Card */
+        .border-beam-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .border-beam-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                #ef4444,
+                #f43f5e,
+                transparent
+            );
+            animation: rotateBeam 6s linear infinite;
+            z-index: 0;
+            opacity: 0.85;
+        }
+
+        .border-beam-inner {
+            position: relative;
+            z-index: 1;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(20px);
+            border-radius: inherit;
+        }
+
+        @keyframes rotateBeam {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Background Aurora Blobs */
+        .aurora-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .aurora-1 {
+            width: 500px;
+            height: 500px;
+            top: -100px;
+            left: -100px;
+            background: radial-gradient(circle, #3b82f6, #8b5cf6, transparent);
+            animation: floatBlob1 18s ease-in-out infinite alternate;
+        }
+
+        .aurora-2 {
+            width: 600px;
+            height: 600px;
+            top: 20%;
+            right: -150px;
+            background: radial-gradient(circle, #ec4899, #f43f5e, transparent);
+            animation: floatBlob2 22s ease-in-out infinite alternate;
+        }
+
+        .aurora-3 {
+            width: 550px;
+            height: 550px;
+            bottom: -150px;
+            left: 30%;
+            background: radial-gradient(circle, #06b6d4, #3b82f6, transparent);
+            animation: floatBlob3 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatBlob1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(120px, 80px) scale(1.15); }
+        }
+
+        @keyframes floatBlob2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-100px, 120px) scale(0.9); }
+        }
+
+        @keyframes floatBlob3 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, -90px) scale(1.1); }
+        }
+
+        /* Pulse Animations */
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px #22c55e; }
+            50% { opacity: 0.4; transform: scale(0.85); box-shadow: 0 0 2px #22c55e; }
+        }
+
+        .live-dot-animated {
+            animation: livePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes riskPulse100 {
+            0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+            50% { box-shadow: 0 0 25px rgba(239, 68, 68, 1); }
+        }
+
+        .risk-pulse-critical {
+            animation: riskPulse100 1.5s infinite;
+        }
+
+        /* Staggered Slide In Animation */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: slideInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Skeleton shimmer */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.03) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Modal glass overlay */
+        .modal-backdrop-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(3, 7, 18, 0.75);
+        }
+
+        .modal-animate-in {
+            animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes modalIn {
+            0% { opacity: 0; transform: scale(0.93) translateY(20px); filter: blur(8px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(11, 15, 26, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Button ripple & press feedback */
+        .btn-press {
+            transition: all 0.2s ease;
+        }
+        .btn-press:active {
+            transform: scale(0.96);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative text-slate-100 selection:bg-cyan-500 selection:text-white">
+
+    <!-- Background Aurora Effect -->
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- TOP NAV -->
+        <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-slate-950/70 border-b border-white/10 px-6 py-3.5 transition-all">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Brand / Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 ring-1 ring-white/20">
+                        <i class="bi bi-shield-lock-fill text-xl text-white"></i>
+                    </div>
+                    <div class="flex items-center space-x-2.5">
+                        <span class="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
+                            DealIQ
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-400 ring-1 ring-inset ring-rose-500/30 shadow-sm shadow-rose-950/50">
+                            <i class="bi bi-radar text-rose-400 mr-1.5 animate-spin" style="animation-duration: 4s;"></i> At-Risk Deal Radar
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Live Engine Indicator -->
+                <div class="flex items-center space-x-3 bg-slate-900/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 shadow-inner">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 live-dot-animated"></span>
+                    </span>
+                    <span id="live-refresh-timer" class="text-xs font-medium text-slate-300 tracking-wide">
+                        Live Engine • Refreshed 0s ago
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTAINER -->
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+            <!-- STAT CARDS ROW (4 Cards with 3D Tilt Effect) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <!-- Stat Card 1: Active Live Deals -->
+                <div class="tilt-card glass-card glass-card-hover rounded-2xl p-5 relative overflow-hidden group cursor-pointer" data-tilt>
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active Live Deals</span>
+                        <div class="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                            <i class="bi bi-diagram-3 text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-white tracking-tight" id="metric-live-deals">
+                        0
+                    </div>
+                    <div class="mt-2 text-xs text-slate-400 flex items-center">
+                        <span class="text-cyan-400 font-medium mr-1"><i class="bi bi-activity"></i> Real-time</span> pipeline monitoring
+                    </div>
+                </div>
+
+                <!-- Stat Card 2: Total Pipeline Value -->
+                <div class="tilt-card glass-card glass-card-hover rounded-2xl p-5 relative overflow-hidden group cursor-pointer" data-tilt>
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Pipeline Value</span>
+                        <div class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                            <i class="bi bi-currency-dollar text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-white tracking-tight" id="metric-total-pipeline">
+                        $0
+                    </div>
+                    <div class="mt-2 text-xs text-slate-400 flex items-center">
+                        <span class="text-slate-300 font-medium mr-1" id="metric-weighted-value">$0</span> weighted
+                    </div>
+                </div>
+
+                <!-- Stat Card 3: Pipeline Value At Risk (Border-Beam Glowing Urgent Animation) -->
+                <div class="tilt-card border-beam-container rounded-2xl p-[1px] cursor-pointer" data-tilt>
+                    <div class="border-beam-inner p-5 rounded-2xl h-full flex flex-col justify-between group">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="bi bi-exclamation-triangle-fill animate-bounce"></i> Pipeline At Risk (Med + High)
+                            </span>
+                            <div class="w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-lg shadow-rose-950/50">
+                                <i class="bi bi-shield-x text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-rose-400 tracking-tight" id="metric-value-at-risk">
+                            $0
+                        </div>
+                        <div class="mt-2 text-xs text-rose-300/80 flex items-center">
+                            <span id="metric-risk-count-pill" class="font-semibold text-rose-300 bg-rose-500/20 px-2 py-0.5 rounded-full border border-rose-500/30 mr-1.5">
+                                0 High Risk
+                            </span> deals flag risk
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stat Card 4: Avg Health / Win Rate -->
+                <div class="tilt-card glass-card glass-card-hover rounded-2xl p-5 relative overflow-hidden group cursor-pointer" data-tilt>
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Avg Health / Win Rate</span>
+                        <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                            <i class="bi bi-heart-pulse text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-extrabold text-white tracking-tight" id="metric-avg-health">
+                        0 / 0%
+                    </div>
+                    <div class="mt-2 text-xs text-slate-400 flex items-center">
+                        <span class="text-amber-400 font-medium mr-1" id="metric-historical-count">550 historical analogs</span> analyzed
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TAB & FILTER SECTION -->
+            <div class="space-y-4">
+                <!-- TABS WITH SLIDING INDICATOR -->
+                <div class="flex items-center justify-between border-b border-white/10 pb-1">
+                    <nav class="flex space-x-6 relative" aria-label="Tabs">
+                        <button id="tab-btn-live" onclick="switchTab('live')" class="flex items-center space-x-2 py-3 px-1 text-sm font-semibold text-cyan-400 border-b-2 border-cyan-400 transition-all">
+                            <i class="bi bi-fire text-amber-400"></i>
+                            <span>Ranked At-Risk Deals</span>
+                            <span id="live-badge-count" class="ml-1.5 px-2 py-0.5 text-xs rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">0</span>
+                        </button>
+                        <button id="tab-btn-hist" onclick="switchTab('hist')" class="flex items-center space-x-2 py-3 px-1 text-sm font-semibold text-slate-400 hover:text-slate-200 border-b-2 border-transparent transition-all">
+                            <i class="bi bi-clock-history text-slate-400"></i>
+                            <span>Historical Dataset</span>
+                            <span id="hist-badge-count" class="ml-1.5 px-2 py-0.5 text-xs rounded-full bg-slate-800 text-slate-400 border border-slate-700">550</span>
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- FILTER BAR FOR LIVE DEALS -->
+                <div id="live-filter-bar" class="glass-card rounded-2xl p-4 transition-all">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3.5 items-center">
+                        <!-- Search Bar -->
+                        <div class="lg:col-span-3 relative">
+                            <i class="bi bi-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                            <input type="text" id="live-search-input" placeholder="Search company or deal..." 
+                                class="w-full bg-slate-900/80 border border-white/10 rounded-xl pl-9 pr-3.5 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
+                        </div>
+
+                        <!-- Stage Dropdown -->
+                        <div class="lg:col-span-2">
+                            <select id="live-stage-filter" class="w-full bg-slate-900/80 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all cursor-pointer">
+                                <option value="">All Stages</option>
+                                <option value="Discovery">Discovery</option>
+                                <option value="Qualification">Qualification</option>
+                                <option value="Proposal">Proposal</option>
+                                <option value="Negotiation">Negotiation</option>
+                                <option value="Closing">Closing</option>
+                            </select>
+                        </div>
+
+                        <!-- Risk Level Dropdown -->
+                        <div class="lg:col-span-2">
+                            <select id="live-risk-filter" class="w-full bg-slate-900/80 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all cursor-pointer">
+                                <option value="">All Risk Levels</option>
+                                <option value="High">High Risk (60%+)</option>
+                                <option value="Medium">Medium Risk (35-59%)</option>
+                                <option value="Low">Low Risk (&lt;35%)</option>
+                            </select>
+                        </div>
+
+                        <!-- Min Value Input -->
+                        <div class="lg:col-span-3 relative">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs">$</span>
+                            <input type="number" id="live-min-size" placeholder="Min Deal Size (e.g. 100000)" 
+                                class="w-full bg-slate-900/80 border border-white/10 rounded-xl pl-7 pr-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
+                        </div>
+
+                        <!-- Filter Button -->
+                        <div class="lg:col-span-2">
+                            <button id="btn-apply-live-filter" onclick="fetchLiveDeals()" 
+                                class="btn-press w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm py-2 px-4 rounded-xl shadow-lg shadow-cyan-500/25 border border-cyan-400/30 flex items-center justify-center space-x-2 transition-all">
+                                <i class="bi bi-funnel-fill text-xs"></i>
+                                <span>Filter & Rank</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FILTER BAR FOR HISTORICAL DEALS (Hidden by default) -->
+                <div id="hist-filter-bar" class="glass-card rounded-2xl p-4 hidden transition-all">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 items-center">
+                        <div>
+                            <select id="hist-outcome-filter" class="w-full bg-slate-900/80 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 transition-all">
+                                <option value="">All Outcomes</option>
+                                <option value="won">Won Deals</option>
+                                <option value="lost">Lost Deals</option>
+                                <option value="stalled">Stalled Deals</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs">$</span>
+                            <input type="number" id="hist-min-size" placeholder="Min Deal Size" 
+                                class="w-full bg-slate-900/80 border border-white/10 rounded-xl pl-7 pr-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-all">
+                        </div>
+                        <div>
+                            <button id="btn-apply-hist-filter" onclick="fetchHistoricalDeals()" 
+                                class="btn-press w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm py-2 px-4 rounded-xl border border-white/10 flex items-center justify-center space-x-2 transition-all">
+                                <i class="bi bi-search text-xs"></i>
+                                <span>Search Historical Dataset</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RANKED DEAL LIST (GLASS CARDS INSTEAD OF BORING TABLE) -->
+            <div id="pane-live" class="space-y-3.5">
+                <!-- Skeleton Shimmer Placeholder on initial load -->
+                <div id="deals-skeleton" class="space-y-3">
+                    <div class="glass-card rounded-2xl p-5 skeleton h-24 w-full"></div>
+                    <div class="glass-card rounded-2xl p-5 skeleton h-24 w-full"></div>
+                    <div class="glass-card rounded-2xl p-5 skeleton h-24 w-full"></div>
+                </div>
+
+                <!-- Live Deal Row-Cards Container -->
+                <div id="deals-container" class="space-y-3 hidden">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- HISTORICAL DATASET PANE (Hidden by default) -->
+            <div id="pane-hist" class="hidden">
+                <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-300">
+                            <thead class="bg-slate-900/80 text-xs uppercase text-slate-400 font-semibold border-b border-white/10">
+                                <tr>
+                                    <th class="py-3.5 px-4">Deal ID</th>
+                                    <th class="py-3.5 px-4">Company</th>
+                                    <th class="py-3.5 px-4">Outcome</th>
+                                    <th class="py-3.5 px-4">Deal Size</th>
+                                    <th class="py-3.5 px-4">Health</th>
+                                    <th class="py-3.5 px-4">Days</th>
+                                    <th class="py-3.5 px-4">Latency</th>
+                                    <th class="py-3.5 px-4">Sentiment</th>
+                                    <th class="py-3.5 px-4">Stakeholders</th>
+                                </tr>
+                            </thead>
+                            <tbody id="hist-deals-tbody" class="divide-y divide-white/5">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto border-t border-white/5 py-6 text-center text-xs text-slate-500">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <div>DealIQ Engine v2.4 • Powered by RandomForest ML & Euclidean k-NN Analogs</div>
+                <div>Team Shakthi Build Sprint Hackathon</div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- EVIDENCE DRILL-DOWN MODAL -->
+    <div id="drilldown-modal-backdrop" class="fixed inset-0 z-50 modal-backdrop-blur hidden flex items-center justify-center p-4 transition-all">
+        <div id="drilldown-modal-content" class="glass-card rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-white/15 shadow-2xl modal-animate-in relative">
+            
+            <!-- Modal Header -->
+            <div class="sticky top-0 bg-slate-950/80 backdrop-blur-xl px-6 py-4 border-b border-white/10 flex items-center justify-between z-10">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                        <i class="bi bi-shield-check text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2" id="modal-company-title">
+                            Company Name
+                        </h3>
+                        <p class="text-xs text-slate-400" id="modal-deal-subtitle">
+                            DEAL-101 • Stage: Proposal
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Close Button -->
+                <button onclick="closeDrilldown()" class="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-slate-700 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all transform hover:rotate-90">
+                    <i class="bi bi-x-lg text-sm"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-6">
+
+                <!-- Top Info Strip (3 Mini Glass Chips) -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                    <div class="bg-slate-900/60 rounded-2xl p-3.5 border border-white/10">
+                        <div class="text-xs text-slate-400 font-medium mb-1">Risk Category & Score</div>
+                        <div class="text-lg font-bold text-rose-400 flex items-center gap-2" id="modal-risk-score">
+                            High Risk (88%)
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/60 rounded-2xl p-3.5 border border-white/10">
+                        <div class="text-xs text-slate-400 font-medium mb-1">Deal Size & Stage</div>
+                        <div class="text-lg font-bold text-white" id="modal-deal-size-stage">
+                            $450,000 • Proposal
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/60 rounded-2xl p-3.5 border border-white/10">
+                        <div class="text-xs text-slate-400 font-medium mb-1">Health Score</div>
+                        <div class="text-lg font-bold text-amber-400" id="modal-health-score">
+                            42.5 / 100
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HEALTH SCORE FACTORS BREAKDOWN SECTION -->
+                <div id="modal-health-factors-section" class="hidden">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                            <i class="bi bi-heart-pulse-fill text-emerald-400 text-sm"></i> HEALTH SCORE FACTORS
+                        </h4>
+                    </div>
+                    <div id="modal-health-factors-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- WHY THIS DEAL IS AT RISK SECTION -->
+                <div>
+                    <div class="flex items-center justify-between mb-0.5">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-rose-400 flex items-center gap-1.5">
+                            <i class="bi bi-exclamation-triangle-fill text-rose-400 text-sm"></i> WHY THIS DEAL IS AT RISK
+                        </h4>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mb-3" id="modal-risk-caption">
+                        Based on comparison against 550+ historical deals
+                    </p>
+                    <div id="modal-risk-breakdown-list" class="space-y-2">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- TRIGGER EVIDENCE: 3x2 GRID OF METRIC TILES -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-3 flex items-center gap-2">
+                        <i class="bi bi-cpu text-sm"></i> Trigger Evidence (Feature Vector Analysis)
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="modal-evidence-grid">
+                        <!-- 6 metric tiles populated via JS -->
+                    </div>
+                </div>
+
+                <!-- RECOMMENDED NEXT MOVE (COPILOT STYLE) -->
+                <div class="stagger-item glass-card rounded-2xl border-l-4 border-l-cyan-400 border border-cyan-500/30 bg-gradient-to-br from-cyan-950/30 via-slate-900/80 to-slate-900/90 p-5 text-slate-100 shadow-xl shadow-cyan-950/20 relative overflow-hidden" style="animation-delay: 0.15s;">
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-base">🎯</span>
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-cyan-300 drop-shadow-sm">
+                                RECOMMENDED NEXT MOVE
+                            </h4>
+                        </div>
+                        <span id="modal-copilot-tag" class="px-2.5 py-0.5 text-[10px] font-bold uppercase rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 shrink-0">
+                            Copilot Recommendation
+                        </span>
+                    </div>
+
+                    <!-- Action Headline -->
+                    <h3 class="text-base font-extrabold text-white tracking-tight leading-snug mb-3.5" id="modal-copilot-headline">
+                        Offer flexible quarterly payment terms.
+                    </h3>
+
+                    <!-- WHY Section -->
+                    <div class="space-y-2 mb-4 bg-slate-950/50 p-3.5 rounded-xl border border-white/5">
+                        <div class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1">
+                            <i class="bi bi-question-circle-fill text-[11px]"></i> WHY THIS MOVE?
+                        </div>
+                        <ul class="space-y-1.5 text-xs text-slate-200/90" id="modal-copilot-why-list">
+                            <!-- Bullet points generated dynamically -->
+                        </ul>
+                    </div>
+
+                    <!-- WHY NOT ALTERNATIVE Section -->
+                    <div class="bg-slate-950/30 p-3 rounded-xl border border-white/5">
+                        <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1" id="modal-copilot-whynot-title">
+                            WHY NOT DIRECT DISCOUNTING?
+                        </div>
+                        <p class="text-xs text-slate-300/90 leading-relaxed" id="modal-copilot-whynot-desc">
+                            Historical deals with similar stakeholder and engagement patterns recovered more often through flexible payment structuring than direct price discounting.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- NEAREST HISTORICAL ANALOG OUTCOMES -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                        <i class="bi bi-diagram-3 text-sm text-blue-400"></i> Nearest Historical Analog Outcomes (k-NN Similarity)
+                    </h4>
+                    <div class="bg-slate-900/60 rounded-2xl overflow-hidden border border-white/10">
+                        <table class="w-full text-left text-xs text-slate-300">
+                            <thead class="bg-slate-900/90 text-[10px] uppercase text-slate-400 font-semibold border-b border-white/10">
+                                <tr>
+                                    <th class="py-2.5 px-3.5">Analog Company</th>
+                                    <th class="py-2.5 px-3.5">Deal Size</th>
+                                    <th class="py-2.5 px-3.5">Days in Stage</th>
+                                    <th class="py-2.5 px-3.5">Outcome</th>
+                                </tr>
+                            </thead>
+                            <tbody id="modal-analogs-tbody" class="divide-y divide-white/5">
+                                <!-- Sequential fade in rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-950/80 backdrop-blur-xl px-6 py-3.5 border-t border-white/10 flex justify-end">
+                <button onclick="closeDrilldown()" class="btn-press bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs px-5 py-2 rounded-xl border border-white/10 transition-all">
+                    Close Radar View
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // Global Error Handler for diagnostics
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error("Global JS Error:", msg, lineNo, error);
+            const skeleton = document.getElementById('deals-skeleton');
+            const dealsContainer = document.getElementById('deals-container');
+            if (skeleton) skeleton.classList.add('hidden');
+            if (dealsContainer) {
+                dealsContainer.classList.remove('hidden');
+                dealsContainer.innerHTML = `
+                    <div class="glass-card rounded-2xl p-6 text-center text-rose-400 border border-rose-500/30">
+                        <i class="bi bi-exclamation-triangle text-2xl mb-1 block"></i>
+                        <p class="font-bold text-sm">Dashboard Initialization Error</p>
+                        <p class="text-xs text-rose-300 mt-1">${msg} (Line ${lineNo})</p>
+                    </div>
+                `;
+            }
+            return false;
+        };
+
+        const formatUSD = (val) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val || 0);
+        
+        let liveDealsData = [];
+        let historicalDealsData = [];
+        let lastRefreshedTime = new Date();
+        let currentTab = 'live';
+
+        // Animated count-up helper
+        function animateValue(elementId, start, end, duration, isCurrency = false) {
+            const obj = document.getElementById(elementId);
+            if (!obj) return;
+            const safeStart = Number(start) || 0;
+            const safeEnd = Number(end) || 0;
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const current = Math.floor(progress * (safeEnd - safeStart) + safeStart);
+                obj.innerText = isCurrency ? formatUSD(current) : current.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerText = isCurrency ? formatUSD(safeEnd) : safeEnd.toLocaleString();
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Timer badge for live simulation
+        function updateTimerBadge() {
+            const now = new Date();
+            const diffSec = Math.max(0, Math.floor((now - lastRefreshedTime) / 1000));
+            document.getElementById('live-refresh-timer').innerText = `Live Engine • Refreshed ${diffSec}s ago`;
+        }
+        setInterval(updateTimerBadge, 1000);
+
+        // Tab Switching Logic
+        function switchTab(tab) {
+            currentTab = tab;
+            const btnLive = document.getElementById('tab-btn-live');
+            const btnHist = document.getElementById('tab-btn-hist');
+            const paneLive = document.getElementById('pane-live');
+            const paneHist = document.getElementById('pane-hist');
+            const filterLive = document.getElementById('live-filter-bar');
+            const filterHist = document.getElementById('hist-filter-bar');
+
+            if (tab === 'live') {
+                btnLive.className = "flex items-center space-x-2 py-3 px-1 text-sm font-semibold text-cyan-400 border-b-2 border-cyan-400 transition-all";
+                btnHist.className = "flex items-center space-x-2 py-3 px-1 text-sm font-semibold text-slate-400 hover:text-slate-200 border-b-2 border-transparent transition-all";
+                paneLive.classList.remove('hidden');
+                paneHist.classList.add('hidden');
+                filterLive.classList.remove('hidden');
+                filterHist.classList.add('hidden');
+            } else {
+                btnHist.className = "flex items-center space-x-2 py-3 px-1 text-sm font-semibold text-cyan-400 border-b-2 border-cyan-400 transition-all";
+                btnLive.className = "flex items-center space-x-2 py-3 px-1 text-sm font-semibold text-slate-400 hover:text-slate-200 border-b-2 border-transparent transition-all";
+                paneHist.classList.remove('hidden');
+                paneLive.classList.add('hidden');
+                filterHist.classList.remove('hidden');
+                filterLive.classList.add('hidden');
+            }
+        }
+
+        // Fetch Metrics
+        async function fetchMetrics() {
+            try {
+                const res = await fetch('/api/metrics');
+                const data = await res.json();
+                
+                animateValue('metric-live-deals', 0, data.live_deals_count, 800);
+                animateValue('metric-total-pipeline', 0, data.total_pipeline_value, 1000, true);
+                animateValue('metric-value-at-risk', 0, data.value_at_risk, 1000, true);
+
+                document.getElementById('metric-weighted-value').innerText = `${formatUSD(data.weighted_pipeline_value)}`;
+                document.getElementById('metric-avg-health').innerText = `${data.avg_health_score} / ${data.historical_win_rate}% Win Rate`;
+                
+                const highRiskCount = data.risk_breakdown ? data.risk_breakdown.high : 0;
+                document.getElementById('metric-risk-count-pill').innerText = `${highRiskCount} High Risk`;
+                document.getElementById('live-badge-count').innerText = data.live_deals_count;
+                document.getElementById('hist-badge-count').innerText = data.historical_total || 550;
+            } catch (e) {
+                console.error("Error fetching pipeline metrics:", e);
+            }
+        }
+
+        // Fetch Live Deals
+        async function fetchLiveDeals() {
+            const stage = document.getElementById('live-stage-filter').value;
+            const risk = document.getElementById('live-risk-filter').value;
+            const minSize = document.getElementById('live-min-size').value;
+            const search = document.getElementById('live-search-input').value.toLowerCase().trim();
+
+            let url = `/api/deals/live?`;
+            if (stage) url += `stage=${encodeURIComponent(stage)}&`;
+            if (risk) url += `risk_level=${encodeURIComponent(risk)}&`;
+            if (minSize) url += `min_size=${encodeURIComponent(minSize)}&`;
+
+            const dealsContainer = document.getElementById('deals-container');
+            const skeleton = document.getElementById('deals-skeleton');
+
+            try {
+                const res = await fetch(url);
+                const responseData = await res.json();
+
+                if (responseData.last_refreshed) {
+                    lastRefreshedTime = new Date(responseData.last_refreshed);
+                    updateTimerBadge();
+                }
+
+                let deals = responseData.deals || [];
+                
+                if (search) {
+                    deals = deals.filter(d => 
+                        d.company_name.toLowerCase().includes(search) || 
+                        d.deal_id.toLowerCase().includes(search)
+                    );
+                }
+
+                deals.sort((a, b) => b.risk_score - a.risk_score);
+                liveDealsData = deals;
+
+                skeleton.classList.add('hidden');
+                dealsContainer.classList.remove('hidden');
+
+                if (deals.length === 0) {
+                    dealsContainer.innerHTML = `
+                        <div class="glass-card rounded-2xl p-8 text-center text-slate-400">
+                            <i class="bi bi-search text-3xl text-slate-500 mb-2 block"></i>
+                            <p class="font-medium">No live deals match your filter criteria.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                dealsContainer.innerHTML = deals.map((deal, index) => {
+                    const score = Number(deal.risk_score) || 0;
+                    const isCritical = score >= 60;
+                    const isMedium = score >= 35 && score < 60;
+                    
+                    const ringColor = isCritical ? '#ef4444' : (isMedium ? '#f59e0b' : '#10b981');
+                    const badgeBg = isCritical ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' : (isMedium ? 'bg-amber-500/10 text-amber-400 border-amber-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30');
+                    const is100 = score >= 95;
+
+                    const rec = deal.recovery_strategy || {};
+                    const actionType = rec.action_type || "Recommended Action";
+                    const recText = rec.recommendation || "Maintain standard playbook engagement.";
+                    const reasonText = rec.reason || "Deal progressing within normal pipeline metrics.";
+
+                    // SVG Circular Progress Ring math
+                    const radius = 20;
+                    const circumference = 2 * Math.PI * radius;
+                    const offset = circumference - (score / 100) * circumference;
+
+                    return `
+                        <div class="stagger-item glass-card glass-card-hover rounded-2xl p-4 sm:p-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border border-white/10 group ${is100 ? 'risk-pulse-critical' : ''}" style="animation-delay: ${index * 0.04}s;">
+                            
+                            <!-- Left Section: Rank + Company + Stage -->
+                            <div class="flex items-center space-x-4 min-w-[240px]">
+                                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center font-extrabold text-sm text-cyan-400 shrink-0 shadow-inner">
+                                    #${index + 1}
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2">
+                                        <h3 class="font-bold text-base text-white group-hover:text-cyan-300 transition-colors">${deal.company_name || 'Unknown Company'}</h3>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-xs text-slate-400 mt-0.5">
+                                        <span>${deal.deal_id || 'DEAL-0000'}</span>
+                                        <span>•</span>
+                                        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-[11px] font-medium">
+                                            ${deal.stage || 'In Progress'}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Deal Size -->
+                            <div class="min-w-[120px]">
+                                <div class="text-[10px] uppercase font-semibold text-slate-500">Deal Value</div>
+                                <div class="text-base font-extrabold text-white tracking-tight">${formatUSD(deal.deal_size)}</div>
+                            </div>
+
+                            <!-- Risk % SVG Ring -->
+                            <div class="flex items-center space-x-3 min-w-[140px]">
+                                <div class="relative w-12 h-12 flex items-center justify-center shrink-0">
+                                    <svg class="w-12 h-12 transform -rotate-90">
+                                        <circle cx="24" cy="24" r="${radius}" stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="transparent" />
+                                        <circle cx="24" cy="24" r="${radius}" stroke="${ringColor}" stroke-width="4" fill="transparent"
+                                            stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" stroke-linecap="round" class="transition-all duration-1000 ease-out" />
+                                    </svg>
+                                    <span class="absolute text-[11px] font-extrabold text-white">${Math.round(score)}%</span>
+                                </div>
+                                <div>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-[11px] font-semibold border ${badgeBg}">
+                                        ${deal.risk_category || 'Unassigned'}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- One-line Diagnosis -->
+                            <div class="flex-1 max-w-sm">
+                                <div class="text-[10px] uppercase font-semibold text-slate-500 mb-0.5">Primary Diagnosis</div>
+                                <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                                    ${reasonText}
+                                </p>
+                            </div>
+
+                            <!-- Recommended Action Pill -->
+                            <div class="max-w-xs w-full lg:w-auto">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 mb-1">
+                                    <i class="bi bi-lightning-charge-fill text-amber-400 mr-1 text-[10px]"></i> ${actionType}
+                                </span>
+                                <p class="text-[11px] text-slate-400 line-clamp-1">${recText}</p>
+                            </div>
+
+                            <!-- Evidence Button -->
+                            <div class="shrink-0">
+                                <button onclick="openDrilldown('${deal.deal_id}')" 
+                                    class="btn-press bg-slate-800/90 hover:bg-cyan-500/20 text-slate-200 hover:text-cyan-300 font-semibold text-xs py-2 px-3.5 rounded-xl border border-white/10 hover:border-cyan-500/40 flex items-center space-x-1.5 transition-all shadow-md group-hover:shadow-cyan-500/10">
+                                    <i class="bi bi-search text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                                    <span>Evidence</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    `;
+                }).join('');
+
+            } catch (e) {
+                console.error("Error fetching live deals:", e);
+                skeleton.classList.add('hidden');
+                dealsContainer.classList.remove('hidden');
+                dealsContainer.innerHTML = `
+                    <div class="glass-card rounded-2xl p-8 text-center text-rose-400 border border-rose-500/30">
+                        <i class="bi bi-exclamation-triangle text-3xl mb-2 block"></i>
+                        <p class="font-medium">Error loading live pipeline data. Please refresh or check server connection.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Fetch Historical Dataset
+        async function fetchHistoricalDeals() {
+            const outcome = document.getElementById('hist-outcome-filter').value;
+            const minSize = document.getElementById('hist-min-size').value;
+
+            let url = `/api/deals/historical?`;
+            if (outcome) url += `outcome=${encodeURIComponent(outcome)}&`;
+            if (minSize) url += `min_size=${encodeURIComponent(minSize)}&`;
+
+            const tbody = document.getElementById('hist-deals-tbody');
+            try {
+                const res = await fetch(url);
+                const deals = await res.json();
+                historicalDealsData = deals;
+
+                if (deals.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="9" class="text-center py-6 text-slate-500">No historical deals match criteria.</td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = deals.slice(0, 100).map(d => {
+                    const outcomeBadge = d.outcome === 'won' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' : (d.outcome === 'stalled' ? 'bg-amber-500/10 text-amber-400 border-amber-500/30' : 'bg-rose-500/10 text-rose-400 border-rose-500/30');
+                    return `
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="py-3 px-4 font-mono text-xs text-slate-400">${d.deal_id}</td>
+                            <td class="py-3 px-4 font-semibold text-white">${d.company_name}</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-0.5 rounded-full text-xs font-semibold border ${outcomeBadge}">
+                                    ${d.outcome.toUpperCase()}
+                                </span>
+                            </td>
+                            <td class="py-3 px-4 font-bold text-slate-200">${formatUSD(d.deal_size)}</td>
+                            <td class="py-3 px-4 font-semibold text-amber-400">${d.health_score}</td>
+                            <td class="py-3 px-4">${d.days_in_stage} d</td>
+                            <td class="py-3 px-4">${d.response_latency_hrs} h</td>
+                            <td class="py-3 px-4 capitalize text-slate-300">${d.sentiment_trend}</td>
+                            <td class="py-3 px-4">${d.stakeholder_count}</td>
+                        </tr>
+                    `;
+                }).join('');
+            } catch (e) {
+                console.error("Error loading historical dataset:", e);
+            }
+        }
+
+        // Open Evidence Drill-Down Modal
+        function openDrilldown(dealId) {
+            const deal = liveDealsData.find(d => d.deal_id === dealId);
+            if (!deal) return;
+
+            document.getElementById('modal-company-title').innerText = deal.company_name;
+            document.getElementById('modal-deal-subtitle').innerText = `${deal.deal_id} • Stage: ${deal.stage}`;
+            document.getElementById('modal-risk-score').innerText = `${deal.risk_category} (${Math.round(deal.risk_score)}/100)`;
+            document.getElementById('modal-deal-size-stage').innerText = `${formatUSD(deal.deal_size)} • ${deal.stage}`;
+            document.getElementById('modal-health-score').innerText = `${deal.health_score} / 100`;
+
+            // Populate Structured Health Factors
+            const healthSection = document.getElementById('modal-health-factors-section');
+            const healthList = document.getElementById('modal-health-factors-list');
+            if (healthSection && healthList) {
+                if (deal.health_factors && deal.health_factors.length > 0) {
+                    healthSection.classList.remove('hidden');
+                    healthList.innerHTML = deal.health_factors.map(hf => {
+                        const isPos = hf.impact === 'positive';
+                        const ptsStr = hf.score_contribution > 0 ? `+${hf.score_contribution}` : `${hf.score_contribution}`;
+                        const badgeBg = isPos ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30' : (hf.impact === 'neutral' ? 'bg-slate-500/10 text-slate-300 border-slate-500/30' : 'bg-rose-500/10 text-rose-300 border-rose-500/30');
+                        return `
+                            <div class="glass-card rounded-xl p-2.5 border border-white/10 ${badgeBg} text-xs space-y-1">
+                                <div class="flex items-center justify-between font-bold">
+                                    <span>${isPos ? '🟢' : (hf.impact === 'neutral' ? '⚪' : '🔴')} ${hf.factor}</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 rounded border ${badgeBg}">${ptsStr} pts</span>
+                                </div>
+                                <div class="text-[11px] text-slate-300">
+                                    <span class="text-slate-400">Value:</span> <span class="font-semibold text-white">${hf.value}</span>
+                                    <span class="text-slate-400 ml-2">Benchmark:</span> <span class="font-medium text-slate-300">${hf.benchmark}</span>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    healthSection.classList.add('hidden');
+                }
+            }
+
+            const totalHist = historicalDealsData.length || 550;
+            document.getElementById('modal-risk-caption').innerText = `Based on comparison against ${totalHist}+ historical deals`;
+
+            // Compute Ranked Risk Factors
+            const rec = deal.recovery_strategy || {};
+            const rankedRisks = rec.ranked_risks || {};
+            const posSignals = rec.positive_signals || [];
+
+            const breakdownContainer = document.getElementById('modal-risk-breakdown-list');
+            const riskKeys = ['primary', 'secondary', 'supporting'];
+            const riskLabels = { primary: '1. Primary Risk Signal', secondary: '2. Secondary Risk Signal', supporting: '3. Supporting Risk Signal' };
+
+            let rankedHTML = '';
+            riskKeys.forEach(k => {
+                if (rankedRisks[k]) {
+                    const item = rankedRisks[k];
+                    rankedHTML += `
+                        <div class="glass-card rounded-xl p-3.5 border border-white/10 border-l-4 border-l-rose-500 bg-rose-500/5 space-y-1 text-xs">
+                            <div class="flex items-center justify-between font-bold text-rose-300">
+                                <span>🔴 ${riskLabels[k]}: ${item.factor_name}</span>
+                                <span class="text-[10px] bg-rose-500/20 px-2 py-0.5 rounded border border-rose-500/30">${item.contribution}</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-[11px] text-slate-300 pt-1">
+                                <div><span class="text-slate-400">Current:</span> <span class="font-semibold text-white">${item.current_value}</span></div>
+                                <div><span class="text-slate-400">Benchmark:</span> <span class="font-semibold">${item.benchmark_value}</span></div>
+                                <div><span class="text-slate-400">Variance:</span> <span class="font-semibold text-rose-400">${item.difference}</span></div>
+                            </div>
+                            <div class="text-[11px] text-slate-400 italic pt-0.5">Why it matters: ${item.why_it_matters}</div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (rankedRisks.remainder_note) {
+                rankedHTML += `
+                    <div class="text-[11px] text-slate-400 italic bg-slate-900/60 p-2.5 rounded-xl border border-white/5">
+                        <i class="bi bi-info-circle text-cyan-400 mr-1"></i> ${rankedRisks.remainder_note}
+                    </div>
+                `;
+            }
+
+            if (!rankedHTML) {
+                rankedHTML = `
+                    <div class="glass-card rounded-xl p-3 border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs flex items-center gap-2">
+                        <span>🟢</span>
+                        <span>No critical risk deviations detected — deal metrics are within benchmark thresholds.</span>
+                    </div>
+                `;
+            }
+
+            // POSITIVE SIGNALS SECTION
+            if (posSignals.length > 0) {
+                rankedHTML += `
+                    <div class="mt-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
+                            <i class="bi bi-check-circle-fill text-emerald-400"></i> POSITIVE SIGNALS
+                        </div>
+                        <div class="space-y-1.5">
+                            ${posSignals.map(sig => `
+                                <div class="glass-card rounded-xl p-2.5 border border-emerald-500/20 bg-emerald-500/5 text-emerald-200 text-xs flex items-center space-x-2">
+                                    <span class="text-emerald-400">🟢</span>
+                                    <span>${sig}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            breakdownContainer.innerHTML = rankedHTML;
+
+            // 3x2 Grid of Feature Vector Metrics
+            const grid = document.getElementById('modal-evidence-grid');
+            const metrics = [
+                { label: "Days in Stage", val: `${deal.days_in_stage} days`, isBad: deal.days_in_stage > 45, icon: "bi-calendar3" },
+                { label: "Response Latency", val: `${deal.response_latency_hrs} hrs`, isBad: deal.response_latency_hrs > 24, icon: "bi-clock-history" },
+                { label: "Sentiment Trend", val: deal.sentiment_trend, isBad: deal.sentiment_trend === 'declining', icon: "bi-chat-heart" },
+                { label: "Stakeholders Involved", val: `${deal.stakeholder_count}`, isBad: deal.stakeholder_count < 2, icon: "bi-people" },
+                { label: "Competitor Mentions", val: `${deal.competitor_mentions} mentions`, isBad: deal.competitor_mentions > 0, icon: "bi-shield-slash" },
+                { label: "Scope Change Flags", val: `${deal.scope_change_flags} changes`, isBad: deal.scope_change_flags > 0, icon: "bi-sliders" },
+            ];
+
+            grid.innerHTML = metrics.map(m => `
+                <div class="bg-slate-900/80 rounded-xl p-3 border border-white/10 flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg ${m.isBad ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'} border flex items-center justify-center shrink-0 text-sm">
+                        <i class="bi ${m.icon}"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-slate-400 font-medium">${m.label}</div>
+                        <div class="text-xs font-bold ${m.isBad ? 'text-rose-400' : 'text-emerald-400'} capitalize">${m.val}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Flagged Factors Banner (If present)
+            const banner = document.getElementById('modal-flagged-banner');
+            const factorsList = document.getElementById('modal-flagged-list');
+            if (banner && factorsList) {
+                if (deal.risk_factors && deal.risk_factors.length > 0) {
+                    banner.classList.remove('hidden');
+                    factorsList.innerHTML = deal.risk_factors.map(f => `• ${f}`).join('<br>');
+                } else {
+                    banner.classList.add('hidden');
+                }
+            }
+
+            // Copilot Recommended Next Move Logic
+            const analogs = deal.nearest_analogs || [];
+
+            // 1. Action Headline & Root Cause Badge
+            const headlineText = rec.primary_action || rec.recommendation || "Maintain standard playbook engagement.";
+            document.getElementById('modal-copilot-headline').innerText = headlineText;
+            
+            const rootCauseTag = rec.root_cause ? `Root Cause: ${rec.root_cause}` : (rec.action_type || "Copilot Strategy");
+            document.getElementById('modal-copilot-tag').innerText = rootCauseTag;
+
+            // 2. Generate Dynamic Bullets for WHY THIS MOVE
+            let rawWhy = rec.why_this_move;
+            let whyMoveBullets = [];
+
+            if (Array.isArray(rawWhy)) {
+                whyMoveBullets = rawWhy;
+            } else if (typeof rawWhy === 'string' && rawWhy.trim()) {
+                whyMoveBullets = rawWhy.split('\n');
+            }
+
+            // Clean markdown/bullet prefixes (-, *, •) and bold markers (**), normalize periods
+            whyMoveBullets = whyMoveBullets
+                .map(b => typeof b === 'string' ? b.replace(/^[\s\-\*•]+/, '').replace(/\*\*/g, '').trim() : String(b))
+                .map(b => b.replace(/\.\.+/g, '.').replace(/\.,/g, ',').replace(/,\./g, '.'))
+                .map(b => b.replace(/[\.,;\s]+$/, '') + '.')
+                .filter(b => b.length > 1);
+
+            if (whyMoveBullets.length === 0) {
+                if (rec.why_this_move_text) {
+                    whyMoveBullets.push(rec.why_this_move_text.replace(/\*\*/g, ''));
+                } else {
+                    whyMoveBullets.push(`${rec.root_cause || 'Root cause'} identified in ${deal.stage || 'pipeline stage'}.`);
+                }
+            }
+
+            document.getElementById('modal-copilot-why-list').innerHTML = whyMoveBullets.map(b => `
+                <li class="flex items-start space-x-2 leading-relaxed">
+                    <span class="text-cyan-400 font-bold shrink-0 mt-0.5">•</span>
+                    <span>${b}</span>
+                </li>
+            `).join('');
+
+            // 3. WHY NOT WAIT (Expected Risk of Delay)
+            document.getElementById('modal-copilot-whynot-title').innerText = "WHY NOT WAIT?";
+            document.getElementById('modal-copilot-whynot-desc').innerText = rec.why_not_wait || "Historical evidence indicates that continued delay in this stage increases risk of deal decay.";
+
+            // Nearest Historical Analogs Table
+            const analogsTbody = document.getElementById('modal-analogs-tbody');
+            analogsTbody.innerHTML = analogs.map(a => {
+                const badge = a.outcome === 'won' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' : (a.outcome === 'stalled' ? 'bg-amber-500/10 text-amber-400 border-amber-500/30' : 'bg-rose-500/10 text-rose-400 border-rose-500/30');
+                return `
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="py-2.5 px-3.5 font-semibold text-white">${a.company_name} <span class="text-[10px] text-slate-500 font-mono">(${a.deal_id})</span></td>
+                        <td class="py-2.5 px-3.5 font-bold">${formatUSD(a.deal_size)}</td>
+                        <td class="py-2.5 px-3.5 text-slate-300">${a.days_in_stage} d</td>
+                        <td class="py-2.5 px-3.5">
+                            <span class="px-2 py-0.5 rounded-md text-[10px] font-semibold border ${badge}">
+                                ${a.outcome.toUpperCase()}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            // Show Modal
+            const backdrop = document.getElementById('drilldown-modal-backdrop');
+            backdrop.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeDrilldown() {
+            const backdrop = document.getElementById('drilldown-modal-backdrop');
+            backdrop.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 3D Perspective Tilt Effect on Mouse Move
+        function init3DTilt() {
+            const cards = document.querySelectorAll('[data-tilt]');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -6;
+                    const rotateY = ((x - centerX) / centerX) * 6;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+                });
+            });
+        }
+
+        // Initial Load with readyState check
+        function initApp() {
+            const searchInput = document.getElementById('live-search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', fetchLiveDeals);
+            }
+
+            fetchMetrics();
+            fetchLiveDeals();
+            fetchHistoricalDeals();
+            init3DTilt();
+
+            // Background Live Refresh every 60s
+            setInterval(() => {
+                fetchMetrics();
+                fetchLiveDeals();
+            }, 60000);
+        }
+
+        if (document.readyState === 'loading') {
+            window.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
+</body>
+</html>
