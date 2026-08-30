@@ -1,6 +1,6 @@
 <p align="center">
 <p align="center">
-  <img src="frontend/frontend/public/banner.png" alt="Disaster Response System Banner" width="85%">
+  <img src="DEALIQ%20banner.png" alt="DealIQ — AI-Powered At-Risk Deal Radar" width="100%">
 </p>
 
   
